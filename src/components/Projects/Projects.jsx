@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
-import './Projects.css';
+import './Projects.scss';
 
 const projectsData = [
   {

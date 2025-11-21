@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .projects {
   padding: 8rem 0;
 }
@@ -14,10 +16,10 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease;
-}
 
-.project-card:hover {
-  transform: translateY(-10px);
+  &:hover {
+    transform: translateY(-10px);
+  }
 }
 
 .project-image {
@@ -25,6 +27,10 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+
+  &:hover .project-overlay {
+    opacity: 1;
+  }
 }
 
 .project-overlay {
@@ -42,21 +48,17 @@
   transition: opacity 0.3s ease;
 }
 
-.project-image:hover .project-overlay {
-  opacity: 1;
-}
-
 .project-link {
   color: white;
   background: rgba(255, 255, 255, 0.2);
   padding: 0.8rem;
   border-radius: 50%;
   transition: background 0.3s ease, transform 0.3s ease;
-}
 
-.project-link:hover {
-  background: var(--primary-color);
-  transform: scale(1.1);
+  &:hover {
+    background: $primary-color;
+    transform: scale(1.1);
+  }
 }
 
 .project-content {
@@ -64,31 +66,31 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-}
 
-.project-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--text-color);
-}
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: $text-color;
+  }
 
-.project-content p {
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-  flex: 1;
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    flex: 1;
+  }
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
-}
 
-.project-tags span {
-  font-size: 0.8rem;
-  color: var(--primary-color);
-  background: rgba(59, 130, 246, 0.1);
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
+  span {
+    font-size: 0.8rem;
+    color: $primary-color;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+  }
 }

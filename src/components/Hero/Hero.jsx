@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
-import './Hero.css';
+import './Hero.scss';
 
 const Hero = () => {
   return (

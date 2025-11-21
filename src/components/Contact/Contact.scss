@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .contact {
   padding: 8rem 0;
   background: linear-gradient(to top, transparent, rgba(139, 92, 246, 0.05), transparent);
@@ -9,16 +11,18 @@
   gap: 4rem;
 }
 
-.contact-info h3 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: var(--text-color);
-}
+.contact-info {
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: $text-color;
+  }
 
-.contact-info p {
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
 }
 
 .contact-details {
@@ -31,6 +35,10 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  span {
+    color: rgba(255, 255, 255, 0.9);
+  }
 }
 
 .icon-box {
@@ -41,11 +49,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--primary-color);
-}
-
-.contact-item span {
-  color: rgba(255, 255, 255, 0.9);
+  color: $primary-color;
 }
 
 .contact-form {
@@ -58,29 +62,28 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
 
-.form-group label {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
-}
+  label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
 
-.form-group input,
-.form-group textarea {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  border-radius: 8px;
-  color: white;
-  font-family: inherit;
-  transition: border-color 0.3s ease, background 0.3s ease;
-}
+  input,
+  textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    color: white;
+    font-family: inherit;
+    transition: border-color 0.3s ease, background 0.3s ease;
 
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  background: rgba(255, 255, 255, 0.1);
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
 }
 
 .submit-btn {

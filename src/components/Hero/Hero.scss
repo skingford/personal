@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .hero {
   min-height: 100vh;
   display: flex;
@@ -16,7 +18,7 @@
 
 .greeting {
   font-size: 1.5rem;
-  color: var(--primary-color);
+  color: $primary-color;
   margin-bottom: 1rem;
   font-weight: 500;
 }
@@ -29,7 +31,7 @@
 }
 
 .gradient-text {
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--accent-color));
+  background: linear-gradient(to right, $primary-color, $secondary-color, $accent-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% auto;
@@ -64,22 +66,22 @@
   align-items: center;
   gap: 0.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
 
-.btn.primary {
-  background: var(--primary-color);
-  color: white;
-}
+  &.primary {
+    background: $primary-color;
+    color: white;
+  }
 
-.btn.secondary {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  &.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
 }
 
 .social-links {
@@ -90,11 +92,11 @@
 .social-icon {
   color: rgba(255, 255, 255, 0.6);
   transition: color 0.3s ease, transform 0.3s ease;
-}
 
-.social-icon:hover {
-  color: var(--primary-color);
-  transform: translateY(-3px);
+  &:hover {
+    color: $primary-color;
+    transform: translateY(-3px);
+  }
 }
 
 /* Visual Blob Animation */
@@ -123,7 +125,7 @@
 .blob-1 {
   width: 300px;
   height: 300px;
-  background: var(--primary-color);
+  background: $primary-color;
   top: 0;
   left: 0;
   animation-delay: 0s;
@@ -132,7 +134,7 @@
 .blob-2 {
   width: 250px;
   height: 250px;
-  background: var(--secondary-color);
+  background: $secondary-color;
   bottom: 0;
   right: 0;
   animation-delay: 2s;
@@ -141,7 +143,7 @@
 .blob-3 {
   width: 200px;
   height: 200px;
-  background: var(--accent-color);
+  background: $accent-color;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

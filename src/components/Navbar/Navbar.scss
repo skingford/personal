@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .navbar {
   position: fixed;
   top: 0;
@@ -6,13 +8,13 @@
   z-index: 1000;
   padding: 1.5rem 0;
   transition: all 0.3s ease;
-}
 
-.navbar.scrolled {
-  padding: 1rem 0;
-  background: rgba(10, 10, 10, 0.8);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--glass-border);
+  &.scrolled {
+    padding: 1rem 0;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid $glass-border;
+  }
 }
 
 .navbar-container {
@@ -25,11 +27,11 @@
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-color);
-}
+  color: $text-color;
 
-.highlight {
-  color: var(--primary-color);
+  .highlight {
+    color: $primary-color;
+  }
 }
 
 .desktop-menu {
@@ -43,25 +45,25 @@
   color: rgba(255, 255, 255, 0.8);
   transition: color 0.3s ease;
   position: relative;
-}
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primary-color);
-  transition: width 0.3s ease;
-}
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $primary-color;
+    transition: width 0.3s ease;
+  }
 
-.nav-link:hover {
-  color: #fff;
-}
+  &:hover {
+    color: #fff;
 
-.nav-link:hover::after {
-  width: 100%;
+    &::after {
+      width: 100%;
+    }
+  }
 }
 
 .mobile-toggle {
@@ -80,7 +82,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid $glass-border;
 }
 
 .mobile-nav-link {

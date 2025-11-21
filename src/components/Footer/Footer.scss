@@ -1,6 +1,8 @@
+@import '../../styles/variables';
+
 .footer {
   padding: 2rem 0;
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid $glass-border;
   background: rgba(10, 10, 10, 0.8);
 }
 
@@ -15,14 +17,14 @@
 .footer-links {
   display: flex;
   gap: 2rem;
-}
 
-.footer-links a {
-  transition: color 0.3s ease;
-}
+  a {
+    transition: color 0.3s ease;
 
-.footer-links a:hover {
-  color: var(--primary-color);
+    &:hover {
+      color: $primary-color;
+    }
+  }
 }
 
 @media (max-width: 500px) {
