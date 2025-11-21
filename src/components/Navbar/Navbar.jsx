@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.scss';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,13 +17,27 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const isHome = location.pathname === '/';
+
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/#home', type: 'hash' },
+    { name: 'About', href: '/#about', type: 'hash' },
+    { name: 'Skills', href: '/#skills', type: 'hash' },
+    { name: 'Projects', href: '/#projects', type: 'hash' },
+    { name: 'Experience', href: '/experience', type: 'route' },
+    { name: 'Contact', href: '/#contact', type: 'hash' },
   ];
+
+  const handleNavClick = (link) => {
+    setIsOpen(false);
+    if (link.type === 'hash' && isHome) {
+      // If on home page and clicking hash link, smooth scroll
+      const element = document.querySelector(link.href.replace('/', ''));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <motion.nav
@@ -31,15 +47,35 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="container navbar-container">
-        <a href="#home" className="logo">
+        <Link to="/" className="logo">
           Dev<span className="highlight">.</span>
-        </a>
+        </Link>
 
         <div className="desktop-menu">
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="nav-link">
-              {link.name}
-            </a>
+            link.type === 'route' ? (
+              <Link 
+                key={link.name} 
+                to={link.href} 
+                className={`nav-link ${location.pathname === link.href ? 'active' : ''}`}
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <a 
+                key={link.name} 
+                href={link.href} 
+                className="nav-link"
+                onClick={(e) => {
+                  if (isHome) {
+                    e.preventDefault();
+                    handleNavClick(link);
+                  }
+                }}
+              >
+                {link.name}
+              </a>
+            )
           ))}
         </div>
 
@@ -55,14 +91,32 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
           >
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="mobile-nav-link"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
+              link.type === 'route' ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="mobile-nav-link"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="mobile-nav-link"
+                  onClick={(e) => {
+                    if (isHome) {
+                      e.preventDefault();
+                      handleNavClick(link);
+                    } else {
+                      setIsOpen(false);
+                    }
+                  }}
+                >
+                  {link.name}
+                </a>
+              )
             ))}
           </motion.div>
         )}
