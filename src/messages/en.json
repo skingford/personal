@@ -5,6 +5,7 @@
     "skills": "Skills",
     "projects": "Projects",
     "experience": "Experience",
+    "resume": "Resume",
     "contact": "Contact"
   },
   "Hero": {
@@ -78,5 +79,28 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
+  },
+  "Resume": {
+    "title": "Resume",
+    "download": "Download PDF",
+    "print": "Print Resume",
+    "summary": "Professional Summary",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "projects": "Projects",
+    "languages": "Languages",
+    "interests": "Interests",
+    "contact": "Contact",
+    "education1": {
+      "degree": "Master of Computer Science",
+      "school": "Stanford University",
+      "year": "2016 - 2018"
+    },
+    "education2": {
+      "degree": "Bachelor of Science in Computer Engineering",
+      "school": "University of California, Berkeley",
+      "year": "2012 - 2016"
+    }
   }
 }

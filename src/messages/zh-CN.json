@@ -5,6 +5,7 @@
     "skills": "技能",
     "projects": "项目",
     "experience": "经历",
+    "resume": "简历",
     "contact": "联系"
   },
   "Hero": {
@@ -78,5 +79,28 @@
     "rights": "版权所有。",
     "privacy": "隐私政策",
     "terms": "服务条款"
+  },
+  "Resume": {
+    "title": "个人简历",
+    "download": "下载 PDF",
+    "print": "打印简历",
+    "summary": "专业总结",
+    "experience": "工作经历",
+    "education": "教育背景",
+    "skills": "技能专长",
+    "projects": "项目经验",
+    "languages": "语言能力",
+    "interests": "兴趣爱好",
+    "contact": "联系方式",
+    "education1": {
+      "degree": "计算机科学硕士",
+      "school": "斯坦福大学",
+      "year": "2016 - 2018"
+    },
+    "education2": {
+      "degree": "计算机工程学士",
+      "school": "加州大学伯克利分校",
+      "year": "2012 - 2016"
+    }
   }
 }

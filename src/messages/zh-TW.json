@@ -5,6 +5,7 @@
     "skills": "技能",
     "projects": "專案",
     "experience": "經歷",
+    "resume": "簡歷",
     "contact": "聯繫"
   },
   "Hero": {
@@ -78,5 +79,28 @@
     "rights": "版權所有。",
     "privacy": "隱私政策",
     "terms": "服務條款"
+  },
+  "Resume": {
+    "title": "個人簡歷",
+    "download": "下載 PDF",
+    "print": "列印簡歷",
+    "summary": "專業總結",
+    "experience": "工作經歷",
+    "education": "教育背景",
+    "skills": "技能專長",
+    "projects": "專案經驗",
+    "languages": "語言能力",
+    "interests": "興趣愛好",
+    "contact": "聯繫方式",
+    "education1": {
+      "degree": "計算機科學碩士",
+      "school": "史丹佛大學",
+      "year": "2016 - 2018"
+    },
+    "education2": {
+      "degree": "計算機工程學士",
+      "school": "加州大學柏克萊分校",
+      "year": "2012 - 2016"
+    }
   }
 }
