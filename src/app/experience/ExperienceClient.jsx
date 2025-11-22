@@ -1,7 +1,8 @@
+'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar } from 'lucide-react';
-import './Experience.scss';
+import '../../styles/Experience.scss';
 
 const experiences = [
   {
@@ -30,7 +31,7 @@ const experiences = [
   },
 ];
 
-const Experience = () => {
+const ExperienceClient = () => {
   return (
     <div className="experience-page">
       <div className="container">
@@ -82,4 +83,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default ExperienceClient;

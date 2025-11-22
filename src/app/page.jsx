@@ -5,7 +5,12 @@ import Skills from '../components/Skills/Skills';
 import Projects from '../components/Projects/Projects';
 import Contact from '../components/Contact/Contact';
 
-const Home = () => {
+export const metadata = {
+  title: 'Home | My Portfolio',
+  description: 'Welcome to my personal portfolio website.',
+};
+
+export default function Home() {
   return (
     <>
       <Hero />
@@ -15,6 +20,4 @@ const Home = () => {
       <Contact />
     </>
   );
-};
-
-export default Home;
+}

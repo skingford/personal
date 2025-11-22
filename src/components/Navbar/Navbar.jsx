@@ -1,13 +1,15 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import './Navbar.scss';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +19,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isHome = location.pathname === '/';
+  const isHome = pathname === '/';
 
   const navLinks = [
     { name: 'Home', href: '/#home', type: 'hash' },
@@ -47,35 +49,25 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="container navbar-container">
-        <Link to="/" className="logo">
+        <Link href="/" className="logo">
           Dev<span className="highlight">.</span>
         </Link>
 
         <div className="desktop-menu">
           {navLinks.map((link) => (
-            link.type === 'route' ? (
-              <Link 
-                key={link.name} 
-                to={link.href} 
-                className={`nav-link ${location.pathname === link.href ? 'active' : ''}`}
-              >
-                {link.name}
-              </Link>
-            ) : (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                className="nav-link"
-                onClick={(e) => {
-                  if (isHome) {
-                    e.preventDefault();
-                    handleNavClick(link);
-                  }
-                }}
-              >
-                {link.name}
-              </a>
-            )
+            <Link 
+              key={link.name} 
+              href={link.href} 
+              className={`nav-link ${pathname === link.href ? 'active' : ''}`}
+              onClick={(e) => {
+                if (link.type === 'hash' && isHome) {
+                  e.preventDefault();
+                  handleNavClick(link);
+                }
+              }}
+            >
+              {link.name}
+            </Link>
           ))}
         </div>
 
@@ -91,32 +83,21 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
           >
             {navLinks.map((link) => (
-              link.type === 'route' ? (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="mobile-nav-link"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ) : (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="mobile-nav-link"
-                  onClick={(e) => {
-                    if (isHome) {
-                      e.preventDefault();
-                      handleNavClick(link);
-                    } else {
-                      setIsOpen(false);
-                    }
-                  }}
-                >
-                  {link.name}
-                </a>
-              )
+              <Link
+                key={link.name}
+                href={link.href}
+                className="mobile-nav-link"
+                onClick={(e) => {
+                  if (link.type === 'hash' && isHome) {
+                    e.preventDefault();
+                    handleNavClick(link);
+                  } else {
+                    setIsOpen(false);
+                  }
+                }}
+              >
+                {link.name}
+              </Link>
             ))}
           </motion.div>
         )}

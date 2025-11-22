@@ -1,3 +1,4 @@
+@use "../../styles/variables" as *;
 .hero {
   min-height: 100vh;
   display: flex;
@@ -31,6 +32,7 @@
 .gradient-text {
   background: linear-gradient(to right, $primary-color, $secondary-color, $accent-color);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% auto;
   animation: gradient 5s linear infinite;

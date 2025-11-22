@@ -1,3 +1,4 @@
+@use "variables" as *;
 .experience-page {
   padding-top: 120px;
   padding-bottom: 5rem;
@@ -10,6 +11,7 @@
   margin-bottom: 4rem;
   background: linear-gradient(to right, $primary-color, $secondary-color);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
