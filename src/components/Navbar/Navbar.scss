@@ -36,6 +36,7 @@
 .desktop-menu {
   display: flex;
   gap: 2rem;
+  align-items: center;
 }
 
 .nav-link {
@@ -125,7 +126,8 @@
 
 .lang-menu {
   position: absolute;
-  top: 120%;
+  top: 100%;
+  margin-top: 0.5rem;
   right: 0;
   min-width: 140px;
   padding: 0.5rem;
