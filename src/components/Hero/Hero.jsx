@@ -2,9 +2,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import './Hero.scss';
 
 const Hero = () => {
+  const t = useTranslations('Hero');
+
   return (
     <section id="home" className="hero">
       <div className="container hero-container">
@@ -14,20 +17,20 @@ const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="greeting">Hello, I'm</h2>
+          <h2 className="greeting">{t('greeting')}</h2>
           <h1 className="name">
-            <span className="gradient-text">Full Stack</span> Engineer
+            <span className="gradient-text">{t('role')}</span>
           </h1>
           <p className="description">
-            Crafting elegant, high-performance digital experiences. I build scalable web applications with a focus on design and user experience.
+            {t('description')}
           </p>
           
           <div className="cta-buttons">
             <a href="#projects" className="btn primary">
-              View Work <ArrowRight size={20} />
+              {t('viewWork')} <ArrowRight size={20} />
             </a>
             <a href="#contact" className="btn secondary">
-              Contact Me
+              {t('contactMe')}
             </a>
           </div>
 

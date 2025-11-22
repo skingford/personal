@@ -2,36 +2,39 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar } from 'lucide-react';
-import '../../styles/Experience.scss';
-
-const experiences = [
-  {
-    id: 1,
-    role: 'Senior Full Stack Engineer',
-    company: 'Tech Innovations Inc.',
-    period: '2022 - Present',
-    description: 'Leading the development of scalable web applications using React, Node.js, and AWS. Mentoring junior developers and implementing best practices for code quality and performance.',
-    technologies: ['React', 'Node.js', 'AWS', 'TypeScript'],
-  },
-  {
-    id: 2,
-    role: 'Frontend Developer',
-    company: 'Creative Solutions Agency',
-    period: '2020 - 2022',
-    description: 'Collaborated with designers to create pixel-perfect user interfaces. Optimized website performance and improved accessibility scores by 40%.',
-    technologies: ['Vue.js', 'Sass', 'Webpack', 'Figma'],
-  },
-  {
-    id: 3,
-    role: 'Junior Web Developer',
-    company: 'StartUp Hub',
-    period: '2018 - 2020',
-    description: 'Developed and maintained client websites. Assisted in backend API integration and database management.',
-    technologies: ['HTML/CSS', 'JavaScript', 'PHP', 'MySQL'],
-  },
-];
+import { useTranslations } from 'next-intl';
+import '../../../styles/Experience.scss';
 
 const ExperienceClient = () => {
+  const t = useTranslations('Experience');
+
+  const experiences = [
+    {
+      id: 1,
+      role: t('role1'),
+      company: 'Tech Innovations Inc.',
+      period: `2022 - ${t('present')}`,
+      description: t('desc1'),
+      technologies: ['React', 'Node.js', 'AWS', 'TypeScript'],
+    },
+    {
+      id: 2,
+      role: t('role2'),
+      company: 'Creative Solutions Agency',
+      period: '2020 - 2022',
+      description: t('desc2'),
+      technologies: ['Vue.js', 'Sass', 'Webpack', 'Figma'],
+    },
+    {
+      id: 3,
+      role: t('role3'),
+      company: 'StartUp Hub',
+      period: '2018 - 2020',
+      description: t('desc3'),
+      technologies: ['HTML/CSS', 'JavaScript', 'PHP', 'MySQL'],
+    },
+  ];
+
   return (
     <div className="experience-page">
       <div className="container">
@@ -41,7 +44,7 @@ const ExperienceClient = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Work Experience
+          {t('title')}
         </motion.h1>
         
         <div className="timeline">

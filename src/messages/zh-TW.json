@@ -1,0 +1,82 @@
+{
+  "Navbar": {
+    "home": "首頁",
+    "about": "關於",
+    "skills": "技能",
+    "projects": "專案",
+    "experience": "經歷",
+    "contact": "聯繫"
+  },
+  "Hero": {
+    "greeting": "你好，我是",
+    "role": "全端工程師",
+    "description": "打造優雅、高性能的數位體驗。我專注於設計和用戶體驗，構建可擴展的 Web 應用程式。",
+    "viewWork": "查看作品",
+    "contactMe": "聯繫我"
+  },
+  "About": {
+    "title": "關於我",
+    "p1": "我是一名充滿激情的全端工程師，熱衷於創造美觀且實用的數位解決方案。憑藉在前端和後端開發方面的多年經驗，我能夠彌合設計與工程之間的鴻溝。",
+    "p2": "我的旅程始於對網絡運作方式的好奇，這促使我掌握了 React、Node.js 和雲基礎設施等技術。我堅信編寫整潔、可維護的代碼，並設計直觀且令人愉悅的用戶界面。",
+    "p3": "不寫代碼的時候，你會發現我在探索新技術、為開源做貢獻，或者一邊喝著好咖啡一邊閱讀設計趨勢。",
+    "yearsExperience": "年經驗",
+    "projectsCompleted": "個專案完成",
+    "happyClients": "位滿意客戶"
+  },
+  "Skills": {
+    "title": "技術技能",
+    "frontend": "前端",
+    "backend": "後端",
+    "database": "資料庫",
+    "mobile": "行動端",
+    "devops": "運維",
+    "tools": "工具"
+  },
+  "Projects": {
+    "title": "精選專案",
+    "viewProject": "查看專案",
+    "sourceCode": "源代碼",
+    "project1": {
+      "title": "電子商務平台",
+      "description": "功能齊全的在線商店，具有購物車功能、支付處理和管理儀表板。"
+    },
+    "project2": {
+      "title": "任務管理應用",
+      "description": "具有實時更新和團隊功能的協作專案管理工具。"
+    },
+    "project3": {
+      "title": "AI 內容生成器",
+      "description": "使用 AI 生成營銷文案和部落格文章的 SaaS 應用程式。"
+    }
+  },
+  "Experience": {
+    "title": "工作經歷",
+    "present": "至今",
+    "role1": "高級全端工程師",
+    "desc1": "領導使用 React、Node.js 和 AWS 開發可擴展的 Web 應用程式。指導初級開發人員並實施代碼質量和性能的最佳實踐。",
+    "role2": "前端開發人員",
+    "desc2": "與設計師合作創建像素完美的用戶界面。優化網站性能並將可訪問性分數提高了 40%。",
+    "role3": "初級 Web 開發人員",
+    "desc3": "開發和維護客戶網站。協助後端 API 集成和資料庫管理。"
+  },
+  "Contact": {
+    "title": "取得聯繫",
+    "subtitle": "讓我們談談",
+    "description": "有專案想法或者只是想打個招呼？隨時聯繫我。我總是樂於討論新專案、創意想法或參與您願景的機會。",
+    "email": "發郵件",
+    "location": "位置",
+    "phone": "打電話",
+    "form": {
+      "name": "您的姓名",
+      "email": "您的郵箱",
+      "subject": "主題",
+      "message": "您的留言",
+      "send": "發送留言"
+    }
+  },
+  "Footer": {
+    "rights": "版權所有。",
+    "privacy": "隱私政策",
+    "terms": "服務條款"
+  }
+}

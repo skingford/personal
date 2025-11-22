@@ -24,19 +24,29 @@
   }
 }
 
-.contact-details {
+.info-items {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-.contact-item {
+.info-item {
   display: flex;
   align-items: center;
   gap: 1rem;
 
-  span {
-    color: rgba(255, 255, 255, 0.9);
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $text-color;
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0 !important;
+    font-size: 0.95rem;
   }
 }
 
@@ -86,8 +96,9 @@
 }
 
 .submit-btn {
-  width: fit-content;
-  margin-top: 1rem;
+  // width: fit-content;
+  // margin-top: 1rem;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {

@@ -1,0 +1,82 @@
+{
+  "Navbar": {
+    "home": "首页",
+    "about": "关于",
+    "skills": "技能",
+    "projects": "项目",
+    "experience": "经历",
+    "contact": "联系"
+  },
+  "Hero": {
+    "greeting": "你好，我是",
+    "role": "全栈工程师",
+    "description": "打造优雅、高性能的数字体验。我专注于设计和用户体验，构建可扩展的 Web 应用程序。",
+    "viewWork": "查看作品",
+    "contactMe": "联系我"
+  },
+  "About": {
+    "title": "关于我",
+    "p1": "我是一名充满激情的全栈工程师，热衷于创造美观且实用的数字解决方案。凭借在前端和后端开发方面的多年经验，我能够弥合设计与工程之间的鸿沟。",
+    "p2": "我的旅程始于对网络运作方式的好奇，这促使我掌握了 React、Node.js 和云基础设施等技术。我坚信编写整洁、可维护的代码，并设计直观且令人愉悦的用户界面。",
+    "p3": "不写代码的时候，你会发现我在探索新技术、为开源做贡献，或者一边喝着好咖啡一边阅读设计趋势。",
+    "yearsExperience": "年经验",
+    "projectsCompleted": "个项目完成",
+    "happyClients": "位满意客户"
+  },
+  "Skills": {
+    "title": "技术技能",
+    "frontend": "前端",
+    "backend": "后端",
+    "database": "数据库",
+    "mobile": "移动端",
+    "devops": "运维",
+    "tools": "工具"
+  },
+  "Projects": {
+    "title": "精选项目",
+    "viewProject": "查看项目",
+    "sourceCode": "源代码",
+    "project1": {
+      "title": "电子商务平台",
+      "description": "功能齐全的在线商店，具有购物车功能、支付处理和管理仪表板。"
+    },
+    "project2": {
+      "title": "任务管理应用",
+      "description": "具有实时更新和团队功能的协作项目管理工具。"
+    },
+    "project3": {
+      "title": "AI 内容生成器",
+      "description": "使用 AI 生成营销文案和博客文章的 SaaS 应用程序。"
+    }
+  },
+  "Experience": {
+    "title": "工作经历",
+    "present": "至今",
+    "role1": "高级全栈工程师",
+    "desc1": "领导使用 React、Node.js 和 AWS 开发可扩展的 Web 应用程序。指导初级开发人员并实施代码质量和性能的最佳实践。",
+    "role2": "前端开发人员",
+    "desc2": "与设计师合作创建像素完美的用户界面。优化网站性能并将可访问性分数提高了 40%。",
+    "role3": "初级 Web 开发人员",
+    "desc3": "开发和维护客户网站。协助后端 API 集成和数据库管理。"
+  },
+  "Contact": {
+    "title": "取得联系",
+    "subtitle": "让我们谈谈",
+    "description": "有项目想法或者只是想打个招呼？随时联系我。我总是乐于讨论新项目、创意想法或参与您愿景的机会。",
+    "email": "发邮件",
+    "location": "位置",
+    "phone": "打电话",
+    "form": {
+      "name": "您的姓名",
+      "email": "您的邮箱",
+      "subject": "主题",
+      "message": "您的留言",
+      "send": "发送留言"
+    }
+  },
+  "Footer": {
+    "rights": "版权所有。",
+    "privacy": "隐私政策",
+    "terms": "服务条款"
+  }
+}

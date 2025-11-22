@@ -1,0 +1,82 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "greeting": "Hello, I'm",
+    "role": "Full Stack Engineer",
+    "description": "Crafting elegant, high-performance digital experiences. I build scalable web applications with a focus on design and user experience.",
+    "viewWork": "View Work",
+    "contactMe": "Contact Me"
+  },
+  "About": {
+    "title": "About Me",
+    "p1": "I am a passionate Full Stack Engineer with a deep love for creating beautiful and functional digital solutions. With years of experience in both frontend and backend development, I bridge the gap between design and engineering.",
+    "p2": "My journey started with a curiosity for how things work on the web, which led me to master technologies like React, Node.js, and cloud infrastructure. I believe in writing clean, maintainable code and designing user interfaces that are intuitive and delightful.",
+    "p3": "When I'm not coding, you can find me exploring new technologies, contributing to open source, or enjoying a good cup of coffee while reading about design trends.",
+    "yearsExperience": "Years Experience",
+    "projectsCompleted": "Projects Completed",
+    "happyClients": "Happy Clients"
+  },
+  "Skills": {
+    "title": "Technical Skills",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database",
+    "mobile": "Mobile",
+    "devops": "DevOps",
+    "tools": "Tools"
+  },
+  "Projects": {
+    "title": "Featured Projects",
+    "viewProject": "View Project",
+    "sourceCode": "Source Code",
+    "project1": {
+      "title": "E-Commerce Platform",
+      "description": "A full-featured online store with cart functionality, payment processing, and admin dashboard."
+    },
+    "project2": {
+      "title": "Task Management App",
+      "description": "Collaborative project management tool with real-time updates and team features."
+    },
+    "project3": {
+      "title": "AI Content Generator",
+      "description": "SaaS application that uses AI to generate marketing copy and blog posts."
+    }
+  },
+  "Experience": {
+    "title": "Work Experience",
+    "present": "Present",
+    "role1": "Senior Full Stack Engineer",
+    "desc1": "Leading the development of scalable web applications using React, Node.js, and AWS. Mentoring junior developers and implementing best practices for code quality and performance.",
+    "role2": "Frontend Developer",
+    "desc2": "Collaborated with designers to create pixel-perfect user interfaces. Optimized website performance and improved accessibility scores by 40%.",
+    "role3": "Junior Web Developer",
+    "desc3": "Developed and maintained client websites. Assisted in backend API integration and database management."
+  },
+  "Contact": {
+    "title": "Get In Touch",
+    "subtitle": "Let's Talk",
+    "description": "Have a project in mind or just want to say hi? Feel free to reach out. I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.",
+    "email": "Email Me",
+    "location": "Location",
+    "phone": "Call Me",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Your Message",
+      "send": "Send Message"
+    }
+  },
+  "Footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}
