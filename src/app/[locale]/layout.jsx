@@ -8,6 +8,8 @@ import '../../styles/global.scss';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 
+import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
+
 export const metadata = {
   title: 'My Portfolio',
   description: 'Personal portfolio website',
@@ -33,6 +35,7 @@ export default async function LocaleLayout({children, params}) {
             <Navbar />
             <main>{children}</main>
             <Footer />
+            <ScrollToTop />
           </div>
         </NextIntlClientProvider>
       </body>
