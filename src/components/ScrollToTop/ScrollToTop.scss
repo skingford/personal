@@ -17,9 +17,42 @@
   z-index: 999;
   border: 2px solid rgba(255, 255, 255, 0.1);
   transition: background-color 0.3s ease;
+  overflow: visible;
 
   &:hover {
     background: $secondary-color;
+  }
+
+  .rocket-icon {
+    transition: transform 0.3s ease;
+  }
+
+  &.launching {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    pointer-events: none;
+
+    .rocket-icon {
+      color: $primary-color;
+      filter: drop-shadow(0 0 10px $primary-color);
+      transform: rotate(-45deg) scale(1.5);
+    }
+  }
+
+  .fire-trail {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 20px;
+    background: linear-gradient(to bottom, #ff9800, #ff5722);
+    border-radius: 50%;
+    animation: flicker 0.1s infinite alternate;
+    opacity: 0.8;
+    filter: blur(2px);
+    z-index: -1;
   }
 
   @media (max-width: 768px) {
@@ -27,5 +60,17 @@
     right: 1.5rem;
     width: 45px;
     height: 45px;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(-50%) scale(1.2);
+    opacity: 1;
+    height: 30px;
   }
 }

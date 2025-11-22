@@ -1,11 +1,12 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUp } from 'lucide-react';
+import { Rocket } from 'lucide-react';
 import './ScrollToTop.scss';
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isLaunching, setIsLaunching] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -13,6 +14,7 @@ const ScrollToTop = () => {
         setIsVisible(true);
       } else {
         setIsVisible(false);
+        setIsLaunching(false); // Reset launch state when back at top
       }
     };
 
@@ -21,26 +23,35 @@ const ScrollToTop = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    setIsLaunching(true);
+    
+    // Wait for animation to start before scrolling
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }, 300);
   };
 
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          className="scroll-to-top"
+          className={`scroll-to-top ${isLaunching ? 'launching' : ''}`}
           onClick={scrollToTop}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.8, y: 0 }}
+          animate={isLaunching 
+            ? { y: -1000, opacity: 0, transition: { duration: 1, ease: "easeIn" } }
+            : { opacity: 1, scale: 1, y: 0 }
+          }
           exit={{ opacity: 0, scale: 0.8 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileHover={!isLaunching ? { scale: 1.1, rotate: -45 } : {}}
+          whileTap={!isLaunching ? { scale: 0.9 } : {}}
           aria-label="Scroll to top"
         >
-          <ArrowUp size={24} />
+          <Rocket size={24} className="rocket-icon" />
+          {isLaunching && <div className="fire-trail"></div>}
         </motion.button>
       )}
     </AnimatePresence>
