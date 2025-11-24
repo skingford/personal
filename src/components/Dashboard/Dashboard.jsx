@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './Dashboard.scss';
 
 const Dashboard = () => {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [stats, setStats] = useState({
     cpu: 12,
