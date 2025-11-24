@@ -6,6 +6,7 @@ import './Dashboard.scss';
 
 const Dashboard = () => {
   const [isExpanded, setIsExpanded] = useState(true);
+  const [isDragging, setIsDragging] = useState(false);
   const [stats, setStats] = useState({
     cpu: 12,
     cpuCores: 8,
@@ -84,17 +85,45 @@ const Dashboard = () => {
     }));
   };
 
+  const handleHeaderClick = (e) => {
+    // Only toggle if not dragging
+    if (!isDragging) {
+      setIsExpanded(!isExpanded);
+    }
+  };
+
   return (
     <motion.div 
-      className={`sys-dashboard ${isExpanded ? 'expanded' : 'collapsed'}`}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      className={`sys-dashboard ${isExpanded ? 'expanded' : 'collapsed'} ${isDragging ? 'dragging' : ''}`}
+      drag
+      dragMomentum={false}
+      dragElastic={0}
+      dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+      whileDrag={{ scale: 1.05, cursor: 'grabbing' }}
+      onDragStart={() => setIsDragging(true)}
+      onDragEnd={() => setIsDragging(false)}
+      initial={{ opacity: 0, scale: 0.9, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ 
+        type: "spring",
+        stiffness: 300,
+        damping: 25,
+        mass: 0.5
+      }}
+      style={{ willChange: 'transform' }}
     >
-      <div className="dashboard-header" onClick={() => setIsExpanded(!isExpanded)}>
+      <div className="dashboard-header" onClick={handleHeaderClick}>
         <div className="status-indicator">
           <span className={`dot ${stats.status === 'coding' ? 'busy' : 'idle'}`}></span>
-          <span className="label">System Status</span>
+          {isExpanded ? (
+            <span className="label">System Status</span>
+          ) : (
+            <div className="compact-stats">
+              <span className="compact-stat cpu">{Math.round(stats.cpu)}%</span>
+              <span className="compact-stat ram">{Math.round(stats.memory)}%</span>
+              <span className="compact-stat visitors">{stats.visitors}</span>
+            </div>
+          )}
         </div>
         <button className="toggle-btn">
           {isExpanded ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
