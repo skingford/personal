@@ -141,26 +141,22 @@ console.log("\\nSquared numbers:", squared);`
     type: 'backend',
     icon: '🐹',
     pistonLang: 'go',
-    pistonVer: '1.19.0',
+    pistonVer: '*',
     defaultCode: `package main
 
-import (
-	"fmt"
-	"time"
-)
+import "fmt"
 
 func main() {
 	fmt.Println("Hello from Go! 🐹")
-	fmt.Println("Current time:", time.Now().Format(time.RFC822))
 	
-	c := make(chan string)
-	go func() {
-		time.Sleep(1 * time.Second)
-		c <- "Async operation complete!"
-	}()
+	numbers := []int{1, 2, 3, 4, 5}
+	sum := 0
+	for _, num := range numbers {
+		sum += num
+	}
 	
-	msg := <-c
-	fmt.Println(msg)
+	fmt.Printf("Numbers: %v\\n", numbers)
+	fmt.Printf("Sum: %d\\n", sum)
 }`
   },
   rust: {
@@ -261,13 +257,19 @@ const Sandbox = () => {
       });
       
       const data = await response.json();
+      
       if (data.run) {
-        setTerminalOutput(data.run.output || 'No output');
+        const output = data.run.output || '';
+        const stderr = data.run.stderr || '';
+        const combinedOutput = stderr ? `${output}\n\nErrors:\n${stderr}` : output;
+        setTerminalOutput(combinedOutput || 'No output');
+      } else if (data.message) {
+        setTerminalOutput(`Error: ${data.message}`);
       } else {
-        setTerminalOutput('Error: Failed to execute code');
+        setTerminalOutput('Error: Failed to execute code. Please check your syntax.');
       }
     } catch (err) {
-      setTerminalOutput('Error: ' + err.message);
+      setTerminalOutput(`Network Error: ${err.message}\n\nPlease check your internet connection.`);
     } finally {
       setIsCompiling(false);
     }
