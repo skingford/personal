@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, useCallback } from 'react';
 import Editor from '@monaco-editor/react';
-import { RefreshCw, Play, Code2, Monitor, Terminal, ChevronDown } from 'lucide-react';
+import { RefreshCw, Play, Monitor, Terminal, ChevronDown } from 'lucide-react';
 import './Sandbox.scss';
 
 const LANGUAGES = {
@@ -53,7 +53,7 @@ root.render(<App />);`
   vue: {
     name: 'Vue',
     type: 'frontend',
-    icon: '💚',
+    icon: '✌️',
     defaultCode: `<div id="app">
   <div style="text-align: center; padding: 50px; font-family: system-ui;">
     <h1>Vue Counter 💚</h1>
@@ -123,7 +123,7 @@ for i in range(10):
   javascript: {
     name: 'Node.js',
     type: 'backend',
-    icon: '🟢',
+    icon: '📗',
     pistonLang: 'javascript',
     pistonVer: '18.15.0',
     defaultCode: `const os = require('os');
@@ -139,7 +139,7 @@ console.log("\\nSquared numbers:", squared);`
   go: {
     name: 'Go',
     type: 'backend',
-    icon: '🐹',
+    icon: '�',
     pistonLang: 'go',
     pistonVer: '*',
     defaultCode: `package main
@@ -147,16 +147,16 @@ console.log("\\nSquared numbers:", squared);`
 import "fmt"
 
 func main() {
-	fmt.Println("Hello from Go! 🐹")
-	
-	numbers := []int{1, 2, 3, 4, 5}
-	sum := 0
-	for _, num := range numbers {
-		sum += num
-	}
-	
-	fmt.Printf("Numbers: %v\\n", numbers)
-	fmt.Printf("Sum: %d\\n", sum)
+\tfmt.Println("Hello from Go! 🐹")
+\t
+\tnumbers := []int{1, 2, 3, 4, 5}
+\tsum := 0
+\tfor _, num := range numbers {
+\t\tsum += num
+\t}
+\t
+\tfmt.Printf("Numbers: %v\\n", numbers)
+\tfmt.Printf("Sum: %d\\n", sum)
 }`
   },
   rust: {
