@@ -56,6 +56,7 @@ const Navbar = () => {
       items: [
         { name: t('skills'), href: `/${locale}/#skills`, type: 'hash' },
         { name: t('skillForest'), href: `/${locale}/skill-forest`, type: 'route' },
+        { name: t('sandbox'), href: `/${locale}/sandbox`, type: 'route' },
         { name: t('resume'), href: `/${locale}/resume`, type: 'route' },
       ]
     },
