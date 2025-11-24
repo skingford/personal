@@ -295,7 +295,7 @@ const Sandbox = () => {
     <div className="sandbox-container">
       <div className="sandbox-header">
         <div className="header-left">
-          <Code2 size={24} className="text-blue-400" />
+          <div className="lang-icon-large">{currentLangConfig.icon}</div>
           <h1>Live Project Sandbox</h1>
           
           <div className="lang-selector-wrapper">

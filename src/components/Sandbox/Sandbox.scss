@@ -20,6 +20,15 @@
       align-items: center;
       gap: 1.5rem;
 
+      .lang-icon-large {
+        font-size: 2rem;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: float 3s ease-in-out infinite;
+      }
+
       h1 {
         font-size: 1.25rem;
         font-weight: 600;
@@ -213,4 +222,13 @@
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
