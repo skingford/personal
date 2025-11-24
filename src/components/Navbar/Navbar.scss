@@ -39,12 +39,19 @@
   align-items: center;
 }
 
+.nav-item-wrapper {
+  position: relative;
+}
+
 .nav-link {
   font-size: 1rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
   transition: color 0.3s ease;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 
   &::after {
     content: '';
@@ -57,12 +64,78 @@
     transition: width 0.3s ease;
   }
 
-  &:hover {
+  &:hover, &.active {
     color: #fff;
 
     &::after {
       width: 100%;
     }
+  }
+}
+
+.dropdown-trigger {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+
+  .dropdown-icon {
+    transition: transform 0.3s ease;
+    
+    &.rotate {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 1rem;
+  min-width: 180px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  z-index: 1000;
+  background: $card-bg;
+  border: 1px solid $glass-border;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.2s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+  }
+}
+
+.dropdown-item {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: $text-color;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  display: block;
+  white-space: nowrap;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  &.active {
+    color: $primary-color;
+    background: rgba(59, 130, 246, 0.1);
+    font-weight: 500;
   }
 }
 
@@ -89,6 +162,20 @@
   font-size: 1.2rem;
   font-weight: 500;
   text-align: center;
+  
+  &.sub-link {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    padding-left: 1rem;
+  }
+}
+
+.mobile-nav-group-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  color: $primary-color;
+  margin-bottom: -0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -143,6 +230,16 @@
 }
 
 @keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px) translateX(-50%); }
+  to { opacity: 1; transform: translateY(0) translateX(-50%); }
+}
+
+/* Fix for lang menu animation which doesn't use translateX */
+.lang-menu {
+  animation: fadeInLang 0.2s ease;
+}
+
+@keyframes fadeInLang {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
