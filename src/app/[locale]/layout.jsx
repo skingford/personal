@@ -9,6 +9,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 
 import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
+import Dashboard from '../../components/Dashboard/Dashboard';
 
 export const metadata = {
   title: 'My Portfolio',
@@ -36,6 +37,7 @@ export default async function LocaleLayout({children, params}) {
             <main>{children}</main>
             <Footer />
             <ScrollToTop />
+            <Dashboard />
           </div>
         </NextIntlClientProvider>
       </body>
