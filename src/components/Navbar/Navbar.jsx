@@ -47,6 +47,7 @@ const Navbar = () => {
     { name: t('projects'), href: `/${locale}/#projects`, type: 'hash' },
     { name: t('experience'), href: `/${locale}/experience`, type: 'route' },
     { name: t('resume'), href: `/${locale}/resume`, type: 'route' },
+    { name: t('skillForest'), href: `/${locale}/skill-forest`, type: 'route' },
     { name: t('contact'), href: `/${locale}/#contact`, type: 'hash' },
   ];
 
