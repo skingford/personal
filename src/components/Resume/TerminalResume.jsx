@@ -84,6 +84,25 @@ const TerminalResume = () => {
     if (e.key === 'Enter') {
       handleCommand(input);
       setInput('');
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      const parts = input.split(' ');
+      const current = parts[parts.length - 1];
+      
+      if (parts.length === 1) {
+        // Command completion
+        const commands = ['help', 'ls', 'cat', 'whoami', 'clear'];
+        const matches = commands.filter(cmd => cmd.startsWith(current));
+        if (matches.length === 1) {
+          setInput(matches[0] + ' ');
+        }
+      } else if (parts.length === 2) {
+        // File completion
+        const matches = Object.keys(fileSystem).filter(file => file.startsWith(current));
+        if (matches.length === 1) {
+          setInput(parts[0] + ' ' + matches[0]);
+        }
+      }
     }
   };
 
