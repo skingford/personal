@@ -256,24 +256,6 @@ const Chatbot = () => {
 
   return (
     <div className="chatbot-container">
-      <div className="chatbot-header">
-        <div className="header-content">
-          <div className="bot-avatar-container">
-            <div className="bot-avatar">
-              <Sparkles size={20} />
-            </div>
-            <span className="status-dot"></span>
-          </div>
-          <div className="header-info">
-            <h1>AI Assistant</h1>
-            <p className="status">Powered by Kingford-LLM-v1</p>
-          </div>
-        </div>
-        <button className="reset-btn" onClick={() => setMessages([messages[0]])} title="Reset Chat">
-          <RefreshCw size={18} />
-        </button>
-      </div>
-
       <div className="chat-messages">
         <AnimatePresence mode='popLayout'>
           {messages.map((message) => (
