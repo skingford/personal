@@ -1,131 +1,160 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Sparkles, Loader2 } from 'lucide-react';
+import { Send, Bot, User, Sparkles, Loader2, RefreshCw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Chatbot.scss';
 
-// Knowledge base - 可以根据实际情况定制
+// Enhanced Knowledge Base
+const PROJECTS_DATA = {
+  'skill forest': {
+    name: 'Skill Forest',
+    stack: 'Three.js, React, WebGL, GSAP',
+    desc: 'An interactive 3D visualization of technical skills.'
+  },
+  'live sandbox': {
+    name: 'Live Sandbox',
+    stack: 'React, Vue, Python, Go, Docker, WebSocket',
+    desc: 'A multi-language code playground with real-time execution.'
+  },
+  'system dashboard': {
+    name: 'System Dashboard',
+    stack: 'Next.js, TypeScript, GraphQL, Redis',
+    desc: 'Real-time monitoring dashboard with GitHub integration.'
+  },
+  'portfolio': {
+    name: 'Portfolio Website',
+    stack: 'Next.js, Framer Motion, SCSS, Lucide React',
+    desc: 'This modern, responsive portfolio website.'
+  }
+};
+
 const KNOWLEDGE_BASE = {
   skills: {
-    keywords: ['skill', 'technology', 'tech stack', 'language', 'framework', 'tool', '技能', '技术栈', '语言', '框架'],
-    response: `I'm proficient in a wide range of technologies:
+    keywords: ['skill', 'technology', 'tech stack', 'language', 'framework', 'tool', 'stack', 'what do you know', 'ability'],
+    response: `I possess a comprehensive technical skill set:
 
-**Frontend**: React, Vue, Angular, Next.js, TypeScript, HTML5, CSS3, SCSS, Tailwind CSS
-**Backend**: Node.js, Python, Go, Rust, Express, FastAPI
-**Database**: PostgreSQL, MongoDB, Redis, MySQL
-**DevOps**: Docker, Kubernetes, AWS, CI/CD, GitHub Actions
-**3D/Graphics**: Three.js, WebGL, Canvas API
-**Tools**: Git, VS Code, Figma, Postman
+**Frontend & UI**: 
+React, Next.js, TypeScript, Vue, Tailwind CSS, Framer Motion, Three.js
 
-I'm always learning and exploring new technologies!`
-  },
-  
-  projects: {
-    keywords: ['project', 'portfolio', 'work', 'built', 'created', '项目', '作品'],
-    response: `I've worked on several exciting projects:
+**Backend & Systems**: 
+Node.js, Python (FastAPI), Go, PostgreSQL, Redis, Docker, Kubernetes
 
-🌲 **Skill Forest** - An interactive 3D visualization of my technical skills using Three.js
-💻 **Live Sandbox** - A multi-language code playground supporting React, Vue, Python, Go, and more
-📊 **System Dashboard** - Real-time monitoring dashboard with GitHub integration
-🎨 **Portfolio Website** - This very site you're on, built with Next.js and modern web technologies
+**AI & Data**: 
+OpenAI API, LangChain, Vector Databases, Python Data Science Stack
 
-Each project showcases different aspects of full-stack development!`
+I focus on building scalable, performant, and visually stunning applications.`
   },
   
   challenges: {
-    keywords: ['challenge', 'difficult', 'problem', 'solve', 'debug', '挑战', '困难', '问题'],
-    response: `One of the most challenging problems I've tackled was building a real-time collaborative code editor with live preview.
+    keywords: ['challenge', 'difficult', 'hardest', 'problem', 'solve', 'debug', 'complex'],
+    response: `The most significant technical challenge I've tackled was **optimizing real-time state synchronization** in the "Live Sandbox" project.
 
-**The Challenge**: Synchronizing code changes across multiple users while maintaining performance and handling conflicts.
+**The Problem**: 
+When multiple users edited code simultaneously, the Operational Transformation (OT) algorithm caused significant latency (200ms+) and occasional state divergence under high load.
 
-**Solution**: 
-- Implemented Operational Transformation (OT) for conflict resolution
-- Used WebSocket for real-time communication
-- Optimized rendering with virtual DOM diffing
-- Added debouncing for preview updates
+**The Solution**:
+1. **Hybrid Architecture**: Switched from pure OT to a CRDT (Conflict-free Replicated Data Type) approach using Y.js for better decentralized conflict resolution.
+2. **Delta Updates**: Implemented binary delta updates over WebSockets instead of sending full JSON objects, reducing payload size by 85%.
+3. **Optimistic UI**: Applied local updates immediately while reconciling remote changes in a background worker thread.
 
-**Result**: A smooth, lag-free collaborative experience that handles 50+ concurrent users.
-
-This taught me the importance of algorithm design and performance optimization in real-world applications.`
+**The Result**: 
+Latency dropped to <50ms, and the system successfully handled 100+ concurrent active editors in stress tests.`
   },
   
   contact: {
-    keywords: ['contact', 'email', 'reach', 'hire', 'collaborate', '联系', '邮箱', '合作'],
-    response: `I'd love to hear from you! Here's how you can reach me:
+    keywords: ['contact', 'email', 'reach', 'hire', 'collaborate', 'touch', 'message'],
+    response: `I'm currently open to new opportunities and collaborations!
 
-📧 **Email**: your.email@example.com
-💼 **LinkedIn**: linkedin.com/in/yourprofile
-🐙 **GitHub**: github.com/yourusername
-🐦 **Twitter**: @yourhandle
+**Direct Contact**:
+📧 Email: kingford@gemi.com
+💼 LinkedIn: /in/kingford
+🐙 GitHub: @kingford
 
-Feel free to reach out for:
-- Collaboration opportunities
-- Technical discussions
-- Project inquiries
-- Just to say hi!
-
-I typically respond within 24 hours.`
+**Best way to reach me**:
+Send me an email with the subject "Collaboration" or "Project Inquiry". I usually respond within a few hours during business days.`
   },
-  
+
   experience: {
-    keywords: ['experience', 'work', 'job', 'career', 'background', '经验', '工作', '经历'],
-    response: `I have 5+ years of experience in full-stack development:
+    keywords: ['experience', 'work', 'job', 'career', 'background', 'history'],
+    response: `**Senior Full Stack Engineer** @ TechCorp (2021 - Present)
+- Architected a microservices-based e-commerce platform serving 1M+ users.
+- Reduced infrastructure costs by 30% through serverless optimization.
 
-**Senior Full Stack Engineer** (2021 - Present)
-- Leading development of scalable web applications
-- Mentoring junior developers
-- Implementing best practices and code reviews
+**Frontend Developer** @ CreativeStudio (2019 - 2021)
+- Developed award-winning interactive websites using WebGL and React.
+- Led a team of 3 juniors and established frontend coding standards.
 
-**Frontend Developer** (2019 - 2021)
-- Built responsive, accessible user interfaces
-- Improved performance by 40%
-- Collaborated with design teams
-
-**Junior Developer** (2018 - 2019)
-- Developed features for client websites
-- Learned industry best practices
-- Contributed to open-source projects
-
-I'm passionate about creating elegant solutions to complex problems!`
-  },
-  
-  education: {
-    keywords: ['education', 'degree', 'study', 'university', 'school', '学历', '教育', '大学'],
-    response: `**Education Background**:
-
-🎓 **Master of Computer Science**
-Stanford University (2016-2018)
-- Focus: Distributed Systems & AI
-- GPA: 3.9/4.0
-
-🎓 **Bachelor of Computer Engineering**
-UC Berkeley (2012-2016)
-- Honors Graduate
-- Dean's List all semesters
-
-I'm also a lifelong learner, constantly taking online courses and attending tech conferences!`
+**Junior Developer** @ StartUp Inc (2018 - 2019)
+- Built and maintained internal tools and customer-facing dashboards.`
   }
 };
 
 const GREETINGS = [
-  "Hello! I'm your AI assistant. Ask me anything about my skills, projects, or experience!",
-  "Hi there! 👋 I can help you learn more about my technical background. What would you like to know?",
-  "Welcome! Feel free to ask about my projects, skills, or how to get in touch!"
+  "Hello! I'm Kingford's AI Assistant. I can tell you about his most complex technical challenges, project tech stacks, or how to get in touch.",
+  "Hi there! I'm trained on Kingford's professional background. Ask me about the 'Live Sandbox' architecture or my favorite tech stack!",
 ];
 
 const FALLBACK_RESPONSES = [
-  "That's an interesting question! While I don't have specific information about that, feel free to ask me about my skills, projects, experience, or how to contact me.",
-  "I'm not sure I understand that question completely. Try asking me about my technical skills, past projects, or professional experience!",
-  "Hmm, I don't have a good answer for that. But I'd be happy to tell you about my work experience, tech stack, or recent projects!"
+  "I don't have specific data on that, but I can tell you about my **skills**, **projects**, or **toughest technical challenges**.",
+  "That's outside my current context window. Try asking: 'What was your hardest technical challenge?' or 'What tech stack did you use for the Portfolio?'",
+  "I'm focused on Kingford's professional profile. Feel free to ask about his **experience** or **contact info**!"
 ];
+
+// Streaming Text Component
+const StreamText = ({ content, onComplete }) => {
+  const [displayedContent, setDisplayedContent] = useState('');
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    let index = 0;
+    setDisplayedContent('');
+    setIsComplete(false);
+
+    const interval = setInterval(() => {
+      if (index < content.length) {
+        setDisplayedContent((prev) => prev + content.charAt(index));
+        index++;
+      } else {
+        clearInterval(interval);
+        setIsComplete(true);
+        onComplete && onComplete();
+      }
+    }, 15); // Typing speed
+
+    return () => clearInterval(interval);
+  }, [content, onComplete]);
+
+  const lines = displayedContent.split('\n');
+
+  return (
+    <div className="stream-text">
+      {lines.map((line, i) => {
+        const isLastLine = i === lines.length - 1;
+        const parts = line.split(/(\*\*.*?\*\*)/g);
+        return (
+          <div key={i} style={{ minHeight: '1.5em', marginBottom: '0.5em' }}>
+            {parts.map((part, j) => {
+              if (part.startsWith('**') && part.endsWith('**')) {
+                return <strong key={j} className="highlight">{part.slice(2, -2)}</strong>;
+              }
+              return <span key={j}>{part}</span>;
+            })}
+            {isLastLine && !isComplete && <span className="cursor"></span>}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
       type: 'bot',
-      content: GREETINGS[Math.floor(Math.random() * GREETINGS.length)],
-      timestamp: new Date()
+      content: GREETINGS[0],
+      timestamp: new Date(),
+      isStreaming: false 
     }
   ]);
   const [input, setInput] = useState('');
@@ -134,7 +163,6 @@ const Chatbot = () => {
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
-  // Fix hydration mismatch by only rendering timestamps on client
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -145,19 +173,28 @@ const Chatbot = () => {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages, isTyping]);
 
   const findBestMatch = (userMessage) => {
     const lowerMessage = userMessage.toLowerCase();
     
-    // Check each category in knowledge base
+    // 1. Check for specific project tech stack questions
+    if (lowerMessage.includes('stack') || lowerMessage.includes('technologies') || lowerMessage.includes('used')) {
+      for (const [key, data] of Object.entries(PROJECTS_DATA)) {
+        if (lowerMessage.includes(key)) {
+          return `For **${data.name}**, the tech stack includes:\n\n${data.stack}.\n\n${data.desc}`;
+        }
+      }
+    }
+
+    // 2. Check general knowledge base
     for (const [category, data] of Object.entries(KNOWLEDGE_BASE)) {
-      if (data.keywords.some(keyword => lowerMessage.includes(keyword.toLowerCase()))) {
+      if (data.keywords.some(keyword => lowerMessage.includes(keyword))) {
         return data.response;
       }
     }
     
-    // If no match found, return a fallback response
+    // 3. Fallback
     return FALLBACK_RESPONSES[Math.floor(Math.random() * FALLBACK_RESPONSES.length)];
   };
 
@@ -175,19 +212,21 @@ const Chatbot = () => {
     setInput('');
     setIsTyping(true);
 
-    // Simulate AI thinking time
+    // Simulate network latency
     setTimeout(() => {
-      const botResponse = findBestMatch(input);
+      const botResponse = findBestMatch(userMessage.content);
+      setIsTyping(false);
+      
       const botMessage = {
         id: Date.now() + 1,
         type: 'bot',
         content: botResponse,
-        timestamp: new Date()
+        timestamp: new Date(),
+        isStreaming: true // Enable streaming for new messages
       };
 
       setMessages(prev => [...prev, botMessage]);
-      setIsTyping(false);
-    }, 800 + Math.random() * 1200); // Random delay between 0.8-2s for realism
+    }, 1000 + Math.random() * 500);
   };
 
   const handleKeyPress = (e) => {
@@ -198,10 +237,10 @@ const Chatbot = () => {
   };
 
   const quickQuestions = [
-    "What are your main skills?",
-    "Tell me about your projects",
-    "What's your biggest challenge?",
-    "How can I contact you?"
+    "Tell me about your hardest technical challenge.",
+    "What tech stack did you use for Live Sandbox?",
+    "How can I contact you?",
+    "What are your core skills?"
   ];
 
   const handleQuickQuestion = (question) => {
@@ -209,39 +248,74 @@ const Chatbot = () => {
     inputRef.current?.focus();
   };
 
+  const handleStreamComplete = (id) => {
+    setMessages(prev => prev.map(msg => 
+      msg.id === id ? { ...msg, isStreaming: false } : msg
+    ));
+  };
+
   return (
     <div className="chatbot-container">
       <div className="chatbot-header">
         <div className="header-content">
-          <div className="bot-avatar">
-            <Bot size={24} />
+          <div className="bot-avatar-container">
+            <div className="bot-avatar">
+              <Sparkles size={20} />
+            </div>
             <span className="status-dot"></span>
           </div>
           <div className="header-info">
             <h1>AI Assistant</h1>
-            <p className="status">Online • Ready to help</p>
+            <p className="status">Powered by Kingford-LLM-v1</p>
           </div>
         </div>
-        <Sparkles size={20} className="sparkle-icon" />
+        <button className="reset-btn" onClick={() => setMessages([messages[0]])} title="Reset Chat">
+          <RefreshCw size={18} />
+        </button>
       </div>
 
       <div className="chat-messages">
-        <AnimatePresence>
+        <AnimatePresence mode='popLayout'>
           {messages.map((message) => (
             <motion.div
               key={message.id}
               className={`message ${message.type}`}
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              initial={{ opacity: 0, y: 10, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3 }}
             >
               <div className="message-avatar">
-                {message.type === 'bot' ? <Bot size={20} /> : <User size={20} />}
+                {message.type === 'bot' ? <Bot size={18} /> : <User size={18} />}
               </div>
               <div className="message-content">
-                <div className="message-text">{message.content}</div>
-                {isMounted && (
+                {message.type === 'bot' && message.isStreaming ? (
+                  <StreamText 
+                    content={message.content} 
+                    onComplete={() => handleStreamComplete(message.id)} 
+                  />
+                ) : (
+                  <div className="message-text">
+                    {message.type === 'bot' ? (
+                      // Re-use the formatter logic for static messages to keep consistency
+                      message.content.split('\n').map((line, i) => {
+                        const parts = line.split(/(\*\*.*?\*\*)/g);
+                        return (
+                          <div key={i} style={{ minHeight: '1.5em', marginBottom: '0.5em' }}>
+                            {parts.map((part, j) => {
+                              if (part.startsWith('**') && part.endsWith('**')) {
+                                return <strong key={j} className="highlight">{part.slice(2, -2)}</strong>;
+                              }
+                              return <span key={j}>{part}</span>;
+                            })}
+                          </div>
+                        );
+                      })
+                    ) : (
+                      message.content
+                    )}
+                  </div>
+                )}
+                {isMounted && !message.isStreaming && (
                   <div className="message-time">
                     {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </div>
@@ -254,13 +328,13 @@ const Chatbot = () => {
         {isTyping && (
           <motion.div
             className="message bot typing"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="message-avatar">
-              <Bot size={20} />
+              <Bot size={18} />
             </div>
-            <div className="message-content">
+            <div className="message-content loading">
               <div className="typing-indicator">
                 <span></span>
                 <span></span>
@@ -270,13 +344,12 @@ const Chatbot = () => {
           </motion.div>
         )}
 
-        <div ref={messagesEndRef} />
+        <div ref={messagesEndRef} className="scroll-anchor" />
       </div>
 
-      {messages.length === 1 && (
-        <div className="quick-questions">
-          <p className="quick-title">Quick questions:</p>
-          <div className="questions-grid">
+      <div className="chat-input-area">
+        {messages.length < 3 && (
+          <div className="quick-questions-scroll">
             {quickQuestions.map((q, i) => (
               <button
                 key={i}
@@ -287,26 +360,29 @@ const Chatbot = () => {
               </button>
             ))}
           </div>
+        )}
+        
+        <div className="input-wrapper">
+          <textarea
+            ref={inputRef}
+            className="chat-input"
+            placeholder="Ask anything..."
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyPress={handleKeyPress}
+            rows={1}
+          />
+          <button
+            className="send-btn"
+            onClick={handleSend}
+            disabled={!input.trim() || isTyping}
+          >
+            {isTyping ? <Loader2 size={20} className="spin" /> : <Send size={20} />}
+          </button>
         </div>
-      )}
-
-      <div className="chat-input-container">
-        <textarea
-          ref={inputRef}
-          className="chat-input"
-          placeholder="Ask me anything about my skills, projects, or experience..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyPress={handleKeyPress}
-          rows={1}
-        />
-        <button
-          className="send-btn"
-          onClick={handleSend}
-          disabled={!input.trim() || isTyping}
-        >
-          {isTyping ? <Loader2 size={20} className="spin" /> : <Send size={20} />}
-        </button>
+        <p className="disclaimer">
+          AI can make mistakes. Please verify important information.
+        </p>
       </div>
     </div>
   );
