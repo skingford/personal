@@ -30,7 +30,7 @@ export default async function LocaleLayout({children, params}) {
  
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body>
+      <body suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <div className="app">
             <Navbar />
