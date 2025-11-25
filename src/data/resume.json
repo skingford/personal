@@ -1,0 +1,95 @@
+{
+  "basics": {
+    "name": "Kingford",
+    "label": "Senior Full Stack Engineer",
+    "email": "kingford@gemi.com",
+    "phone": "+1 (555) 123-4567",
+    "url": "https://gemi.com",
+    "summary": "Senior Full Stack Engineer with expertise in building scalable, performant, and visually stunning applications. Specialized in React, Next.js, and Cloud Architecture.",
+    "location": {
+      "city": "San Francisco",
+      "region": "CA",
+      "countryCode": "US"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "kingford",
+        "url": "https://github.com/kingford"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "kingford",
+        "url": "https://linkedin.com/in/kingford"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "TechCorp",
+      "position": "Senior Full Stack Engineer",
+      "startDate": "2021-01-01",
+      "endDate": "Present",
+      "summary": "Architected a microservices-based e-commerce platform serving 1M+ users.",
+      "highlights": [
+        "Reduced infrastructure costs by 30% through serverless optimization.",
+        "Led a team of 5 developers in building a cloud-native SaaS platform.",
+        "Implemented CI/CD pipelines reducing deployment time by 50%."
+      ]
+    },
+    {
+      "name": "CreativeStudio",
+      "position": "Frontend Developer",
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "summary": "Developed award-winning interactive websites using WebGL and React.",
+      "highlights": [
+        "Led a team of 3 juniors and established frontend coding standards.",
+        "Collaborated with UX/UI designers to implement pixel-perfect designs."
+      ]
+    },
+    {
+      "name": "StartUp Inc",
+      "position": "Junior Developer",
+      "startDate": "2018-01-01",
+      "endDate": "2019-01-01",
+      "summary": "Built and maintained internal tools and customer-facing dashboards."
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Technology",
+      "area": "Computer Science",
+      "studyType": "Bachelor",
+      "startDate": "2014-01-01",
+      "endDate": "2018-01-01"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Frontend",
+      "keywords": ["React", "Next.js", "TypeScript", "Vue", "Tailwind CSS", "Framer Motion", "Three.js"]
+    },
+    {
+      "name": "Backend",
+      "keywords": ["Node.js", "Python", "Go", "PostgreSQL", "Redis", "Docker", "Kubernetes"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Skill Forest",
+      "description": "An interactive 3D visualization of technical skills.",
+      "keywords": ["Three.js", "React", "WebGL", "GSAP"]
+    },
+    {
+      "name": "Live Sandbox",
+      "description": "A multi-language code playground with real-time execution.",
+      "keywords": ["React", "Vue", "Python", "Go", "Docker", "WebSocket"]
+    },
+    {
+      "name": "System Dashboard",
+      "description": "Real-time monitoring dashboard with GitHub integration.",
+      "keywords": ["Next.js", "TypeScript", "GraphQL", "Redis"]
+    }
+  ]
+}

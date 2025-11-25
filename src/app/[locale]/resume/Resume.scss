@@ -209,3 +209,53 @@
     background: white;
   }
 }
+
+.view-switcher {
+  display: flex;
+  background: #1e293b;
+  padding: 4px;
+  border-radius: 8px;
+  gap: 4px;
+  margin-right: auto;
+
+  button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+
+    &.active {
+      background: #3b82f6;
+      color: white;
+    }
+
+    &:hover:not(.active) {
+      color: white;
+      background: rgba(255, 255, 255, 0.05);
+    }
+  }
+}
+
+.api-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 6px;
+  color: #10b981;
+  font-family: monospace;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba(16, 185, 129, 0.2);
+  }
+}
