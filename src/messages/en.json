@@ -77,6 +77,19 @@
       "subject": "Subject",
       "message": "Your Message",
       "send": "Send Message"
+    },
+    "guestbook": {
+      "title": "Blockchain Guestbook",
+      "subtitle": "Every message is hashed and minted on-chain",
+      "namePlaceholder": "Your Name",
+      "messagePlaceholder": "Leave your message on the blockchain...",
+      "mintButton": "Mint Block",
+      "miningButton": "Mining Block...",
+      "mintedButton": "Minted!",
+      "recentBlocks": "Recent Blocks",
+      "emptyState": "No blocks minted yet. Be the first!",
+      "hash": "Hash",
+      "tx": "Tx"
     }
   },
   "Footer": {

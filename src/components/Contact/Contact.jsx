@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, MapPin, Phone, Send, Loader2, CheckCircle2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { createBlock, simulateMining } from '@/utils/blockchain';
-import BulletScreen from './BulletScreen';
+import BulletScreen from './BulletScreen/BulletScreen';
 import './Contact.scss';
 
 const Contact = () => {
@@ -108,9 +108,9 @@ const Contact = () => {
               transition={{ delay: 0.2 }}
             >
               <div className="guestbook-header">
-                <h3>🔗 Blockchain Guestbook</h3>
+                <h3>🔗 {t('guestbook.title')}</h3>
                 <p className="guestbook-subtitle">
-                  Every message is hashed and minted on-chain ⛓️
+                  {t('guestbook.subtitle')} ⛓️
                 </p>
               </div>
 
@@ -118,7 +118,7 @@ const Contact = () => {
                 <div className="form-group">
                   <input
                     type="text"
-                    placeholder="Your Name"
+                    placeholder={t('guestbook.namePlaceholder')}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -127,7 +127,7 @@ const Contact = () => {
                 </div>
                 <div className="form-group">
                   <textarea
-                    placeholder="Leave your message on the blockchain..."
+                    placeholder={t('guestbook.messagePlaceholder')}
                     rows="4"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -144,17 +144,17 @@ const Contact = () => {
                   {isMining ? (
                     <>
                       <Loader2 size={18} className="spinning" />
-                      Mining Block...
+                      {t('guestbook.miningButton')}
                     </>
                   ) : showSuccess ? (
                     <>
                       <CheckCircle2 size={18} />
-                      Minted!
+                      {t('guestbook.mintedButton')}
                     </>
                   ) : (
                     <>
                       <Send size={18} />
-                      Mint Block
+                      {t('guestbook.mintButton')}
                     </>
                   )}
                 </button>
@@ -162,7 +162,7 @@ const Contact = () => {
 
               {/* Recent Blocks */}
               <div className="recent-blocks">
-                <h4>Recent Blocks</h4>
+                <h4>{t('guestbook.recentBlocks')}</h4>
                 <div className="blocks-list">
                   <AnimatePresence>
                     {blocks.slice(-5).reverse().map((block) => (
@@ -181,10 +181,10 @@ const Contact = () => {
                         <p className="block-message">{block.message}</p>
                         <div className="block-meta">
                           <span className="block-hash" title={block.fullHash}>
-                            Hash: {block.hash}
+                            {t('guestbook.hash')}: {block.hash}
                           </span>
                           <span className="block-tx" title={block.fullTxId}>
-                            Tx: {block.txId}
+                            {t('guestbook.tx')}: {block.txId}
                           </span>
                         </div>
                       </motion.div>
@@ -193,7 +193,7 @@ const Contact = () => {
                   
                   {blocks.length === 0 && (
                     <div className="empty-state">
-                      <p>No blocks minted yet. Be the first! 🚀</p>
+                      <p>{t('guestbook.emptyState')}</p>
                     </div>
                   )}
                 </div>
