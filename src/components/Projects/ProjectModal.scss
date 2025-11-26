@@ -1,0 +1,402 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 9998;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Let clicks pass through to backdrop */
+}
+
+.project-modal {
+  position: relative;
+  pointer-events: auto; /* Re-enable clicks on modal */
+  width: 90vw;
+  max-width: 1400px;
+  height: 90vh;
+  max-height: 850px;
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.95));
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 24px;
+  overflow: hidden;
+  z-index: 9999;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  
+  /* Performance optimizations for dragging */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+
+  &:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.5);
+    transform: rotate(90deg);
+  }
+}
+
+.modal-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+// Left Side - Demo
+.modal-demo {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  padding-bottom: 5rem; /* Space for absolute positioned buttons */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
+  border-right: 1px solid rgba(139, 92, 246, 0.2);
+  min-height: 0;
+  position: relative; /* For absolute positioning */
+  height: 100%;
+}
+
+.demo-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #fbbf24;
+  flex-shrink: 0;
+  
+  h3 {
+    font-size: 1.25rem;
+    margin: 0;
+    font-weight: 700;
+  }
+}
+
+.demo-video,
+.demo-gif,
+.demo-placeholder {
+  flex: 1;
+  min-height: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  video,
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+}
+
+.demo-actions {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  background: rgba(17, 24, 39, 0.95); /* Increased opacity instead of blur */
+  border-radius: 12px; /* Added radius to match design */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem; /* Added padding for better look without blur */
+  
+  .btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    
+    &.primary {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      border: none;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+      }
+    }
+    
+    &.secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}
+
+// Right Side - Details
+.modal-details {
+  padding: 2.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 0;
+
+  h2 {
+    font-size: 2rem;
+    margin: 0;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .project-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    font-size: 1.05rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    &::before {
+      content: '';
+      width: 4px;
+      height: 20px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      border-radius: 2px;
+    }
+  }
+}
+
+.tech-stack {
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .tag {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+}
+
+.architecture {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.architecture-diagram {
+  margin-top: 1rem;
+}
+
+.architecture-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* Remove gap to let arrows connect */
+  position: relative;
+  padding: 1rem 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    bottom: 2rem;
+    left: 2.5rem; /* Align with icon center */
+    width: 2px;
+    background: linear-gradient(to bottom, 
+      rgba(59, 130, 246, 0.5), 
+      rgba(139, 92, 246, 0.5), 
+      rgba(236, 72, 153, 0.5)
+    );
+    z-index: 0;
+  }
+}
+
+.architecture-node {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(30, 41, 59, 0.7);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0.5rem;
+  backdrop-filter: blur(4px);
+
+  &:hover {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: rgba(139, 92, 246, 0.5);
+    transform: translateX(5px) scale(1.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.architecture-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  color: #8b5cf6;
+  margin: -0.25rem 0 -0.25rem 2.5rem; /* Align with line */
+  position: relative;
+  z-index: 2;
+  
+  svg {
+    width: 20px;
+    height: 20px;
+    filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.5));
+    animation: bounce 2s infinite;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+.no-architecture {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 2rem;
+  font-style: italic;
+}
+
+.key-features {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  li {
+    color: rgba(255, 255, 255, 0.8);
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+    }
+  }
+}
+
+// Scrollbar styling
+.modal-demo,
+.modal-details {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.5);
+    border-radius: 10px;
+
+    &:hover {
+      background: rgba(139, 92, 246, 0.7);
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 1024px) {
+  .modal-content {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+
+  .modal-demo {
+    border-right: none;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-modal {
+    width: 95vw;
+    max-height: 95vh;
+  }
+
+  .modal-details {
+    padding: 1.5rem;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .demo-actions {
+    flex-direction: column;
+  }
+}
