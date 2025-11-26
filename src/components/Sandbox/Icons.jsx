@@ -49,10 +49,27 @@ export const GoLogo = () => (
 );
 
 export const RustLogo = () => (
-  <svg viewBox="0 0 106 106" xmlns="http://www.w3.org/2000/svg" className="lang-logo">
-    <g fill="#fff">
-      <path d="M69.7 44.6c-2.3-2.3-5.3-3.6-8.5-3.6H46.9v21.8h13.7c3.2 0 6.2-1.3 8.5-3.6 2.3-2.3 3.6-5.3 3.6-8.5s-1.3-6.2-3.6-8.5zM46.9 30.2h12.5c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 2.6-1 5.1-2.9 6.9-1.8 1.8-4.3 2.9-6.9 2.9H46.9V30.2z"/>
-      <path d="M53 0C23.7 0 0 23.7 0 53s23.7 53 53 53 53-23.7 53-53S82.3 0 53 0zm29.7 66.8c-1.6 3.6-4.3 6.6-7.7 8.6l9.4 14.5h-13l-8.3-13.4h-6.2v13.4h-10V21.4h23.7c5.6 0 10.9 2.2 14.9 6.2 4 4 6.2 9.3 6.2 14.9 0 4.6-1.5 8.9-4.1 12.4 3.3 2.3 5.6 5.8 6.5 9.8.9 4.1.4 8.4-1.4 12.1z"/>
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="lang-logo">
+    <g fill="#E53E3E">
+      {/* Claws */}
+      <path d="M20,40 C10,20 30,10 40,30 Z" />
+      <path d="M80,40 C90,20 70,10 60,30 Z" />
+      {/* Legs */}
+      <path d="M15,55 L5,50" stroke="#E53E3E" strokeWidth="6" strokeLinecap="round" />
+      <path d="M15,65 L5,65" stroke="#E53E3E" strokeWidth="6" strokeLinecap="round" />
+      <path d="M18,75 L8,80" stroke="#E53E3E" strokeWidth="6" strokeLinecap="round" />
+      <path d="M85,55 L95,50" stroke="#E53E3E" strokeWidth="6" strokeLinecap="round" />
+      <path d="M85,65 L95,65" stroke="#E53E3E" strokeWidth="6" strokeLinecap="round" />
+      <path d="M82,75 L92,80" stroke="#E53E3E" strokeWidth="6" strokeLinecap="round" />
+      {/* Body */}
+      <ellipse cx="50" cy="60" rx="35" ry="22" />
     </g>
+    {/* Eyes */}
+    <circle cx="38" cy="52" r="6" fill="white" />
+    <circle cx="38" cy="52" r="2.5" fill="black" />
+    <circle cx="62" cy="52" r="6" fill="white" />
+    <circle cx="62" cy="52" r="2.5" fill="black" />
+    {/* Smile */}
+    <path d="M40,68 Q50,73 60,68" stroke="rgba(0,0,0,0.2)" strokeWidth="3" fill="none" strokeLinecap="round" />
   </svg>
 );
