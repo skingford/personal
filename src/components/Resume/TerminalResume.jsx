@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import resumeData from '../../data/resume.json';
+import resumeData from '@/data/resume.json';
 import './TerminalResume.scss';
 
 const TerminalResume = () => {

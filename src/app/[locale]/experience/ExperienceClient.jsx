@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import '../../../styles/Experience.scss';
+import '@/styles/Experience.scss';
 
 const ExperienceClient = () => {
   const t = useTranslations('Experience');

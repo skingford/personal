@@ -4,7 +4,7 @@ import { useReactToPrint } from 'react-to-print';
 import { Download, Printer, Mail, MapPin, Phone, Globe, Github, Linkedin, Terminal, FileText, Code } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import TerminalResume from '../../../components/Resume/TerminalResume';
+import TerminalResume from '@/components/Resume/TerminalResume';
 import './Resume.scss';
 
 const ResumeClient = () => {
