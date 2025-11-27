@@ -1,0 +1,43 @@
+.world-container {
+  position: relative;
+  width: 0;
+  height: 0;
+
+  .world-section {
+    position: absolute;
+    
+    &.center-section {
+      transform: translate(-50%, -50%);
+      width: 1000px; // Adjust based on Hero size
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      .hero-wrapper {
+        // Scale down Hero if it's too big for the initial view
+        transform: scale(0.8);
+      }
+    }
+
+    &.top-left-section {
+      top: -800px;
+      left: -800px;
+    }
+
+    &.bottom-right-section {
+      top: 800px;
+      left: 800px;
+    }
+  }
+
+  .world-connectors {
+    position: absolute;
+    top: -2000px;
+    left: -2000px;
+    width: 4000px;
+    height: 4000px;
+    pointer-events: none;
+    z-index: -1;
+    overflow: visible;
+  }
+}

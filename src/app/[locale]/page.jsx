@@ -1,11 +1,6 @@
 import React from 'react';
-import Hero from '@/components/Hero/Hero';
-import About from '@/components/About/About';
-import LiveStack from '@/components/LiveStack/LiveStack';
-import Projects from '@/components/Projects/Projects';
-import Contact from '@/components/Contact/Contact';
-
-import FloatingNav from '@/components/FloatingNav/FloatingNav';
+import InfiniteCanvas from '@/components/InfiniteCanvas/InfiniteCanvas';
+import World from '@/components/InfiniteCanvas/World';
 
 export const metadata = {
   title: 'Home | My Portfolio',
@@ -14,13 +9,28 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <>
-      <FloatingNav />
-      <Hero />
-      <About />
-      <LiveStack />
-      <Projects />
-      <Contact />
-    </>
+    <div style={{ width: '100vw', height: '100vh', overflow: 'hidden', position: 'relative' }}>
+      <InfiniteCanvas>
+        <World />
+      </InfiniteCanvas>
+      
+      {/* Overlay UI Hints */}
+      <div style={{ 
+        position: 'fixed', 
+        bottom: 30, 
+        left: '50%', 
+        transform: 'translateX(-50%)',
+        color: 'rgba(255,255,255,0.5)', 
+        pointerEvents: 'none', 
+        zIndex: 100,
+        fontSize: '0.9rem',
+        background: 'rgba(0,0,0,0.5)',
+        padding: '8px 16px',
+        borderRadius: '20px',
+        backdropFilter: 'blur(5px)'
+      }}>
+        Scroll to Zoom • Drag to Pan
+      </div>
+    </div>
   );
 }

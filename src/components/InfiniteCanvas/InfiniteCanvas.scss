@@ -1,0 +1,97 @@
+.infinite-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0f172a;
+  cursor: grab;
+  z-index: 0;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  .canvas-world {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    will-change: transform;
+    transform-origin: 0 0;
+  }
+
+  .grid-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+.canvas-section {
+  position: absolute;
+  
+  &.center-section {
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    pointer-events: none; // Let clicks pass through if needed, or auto
+
+    .hero-content {
+      pointer-events: auto;
+      h1 {
+        font-size: 5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #fff 0%, #6366f1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+      }
+      p {
+        font-size: 1.5rem;
+        color: #94a3b8;
+      }
+      .scroll-hint {
+        margin-top: 2rem;
+        font-size: 0.9rem;
+        color: #64748b;
+        animation: bounce 2s infinite;
+      }
+    }
+  }
+
+  &.projects-section {
+    // Top Left Quadrant
+    top: -800px;
+    left: -1200px;
+    width: 1000px;
+    height: 800px;
+  }
+
+  &.tech-section {
+    // Bottom Right Quadrant
+    top: 600px;
+    left: 600px;
+    width: 800px;
+    height: 800px;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}

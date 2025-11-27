@@ -1,0 +1,72 @@
+.projects-archipelago {
+  position: relative;
+  width: 0;
+  height: 0;
+
+  .archipelago-title {
+    position: absolute;
+    top: -600px;
+    left: -200px;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .project-island {
+    position: absolute;
+    width: 300px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transform-origin: center center;
+
+    .island-content {
+      display: flex;
+      flex-direction: column;
+
+      .project-image {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+      }
+
+      .project-info {
+        padding: 1.5rem;
+
+        h3 {
+          margin: 0 0 0.5rem;
+          font-size: 1.25rem;
+          color: #fff;
+        }
+
+        p {
+          margin: 0 0 1rem;
+          font-size: 0.9rem;
+          color: #94a3b8;
+          line-height: 1.5;
+        }
+
+        .tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+
+          span {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            color: #e2e8f0;
+          }
+        }
+      }
+    }
+  }
+}
