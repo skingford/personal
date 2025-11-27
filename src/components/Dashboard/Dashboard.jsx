@@ -95,6 +95,7 @@ const Dashboard = () => {
   return (
     <motion.div 
       className={`sys-dashboard ${isExpanded ? 'expanded' : 'collapsed'} ${isDragging ? 'dragging' : ''}`}
+      key="dashboard-v2"
       drag
       dragMomentum={false}
       dragElastic={0}
