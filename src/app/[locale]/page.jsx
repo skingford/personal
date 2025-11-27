@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from '@/components/Hero/Hero';
 import About from '@/components/About/About';
-import Skills from '@/components/Skills/Skills';
+import LiveStack from '@/components/LiveStack/LiveStack';
 import Projects from '@/components/Projects/Projects';
 import Contact from '@/components/Contact/Contact';
 
@@ -15,7 +15,7 @@ export default function Home() {
     <>
       <Hero />
       <About />
-      <Skills />
+      <LiveStack />
       <Projects />
       <Contact />
     </>
