@@ -1,0 +1,61 @@
+.debug-wrapper {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  color: #e6edf3;
+  background: rgba(13, 17, 23, 0.8);
+  border: 1px dashed #30363d;
+  padding: 1rem;
+  position: relative;
+  margin: 1rem 0;
+  border-radius: 4px;
+
+  .debug-tag-start,
+  .debug-tag-end {
+    color: #79c0ff; // Tag color
+    font-size: 0.8rem;
+    opacity: 0.7;
+    user-select: none;
+  }
+
+  .debug-content {
+    padding-left: 1.5rem;
+    border-left: 1px solid #30363d;
+    margin: 0.5rem 0;
+  }
+
+  .json-display {
+    color: #ce9178; // String color
+    white-space: pre-wrap;
+    font-size: 0.9rem;
+    
+    // Simple syntax highlighting simulation
+    // Note: Real syntax highlighting would require a library like prismjs
+  }
+}
+
+// Global debug mode styles
+body.debug-mode {
+  background-color: #0d1117 !important; // GitHub Dark Dimmed
+  background-image: 
+    linear-gradient(rgba(48, 54, 61, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(48, 54, 61, 0.5) 1px, transparent 1px) !important;
+  background-size: 20px 20px !important;
+  color: #c9d1d9 !important;
+
+  // * {
+    // Outline everything in debug mode
+    // outline: 1px solid rgba(88, 166, 255, 0.1);
+  // }
+
+  // Hide decorative blobs/gradients in debug mode
+  .blob-container,
+  .gradient-text {
+    filter: grayscale(100%) opacity(0.5);
+    background: none !important;
+    -webkit-text-fill-color: #c9d1d9 !important;
+  }
+  
+  // Make text monospace
+  h1, h2, h3, p, span, a {
+    font-family: 'Fira Code', monospace !important;
+  }
+}

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import ProjectModal from './ProjectModal';
+import DebugWrapper from '@/components/Debug/DebugWrapper';
 import './Projects.scss';
 
 const Projects = () => {
@@ -178,16 +179,17 @@ const Projects = () => {
     <>
       <section id="projects" className="projects">
         <div className="container">
-          <motion.h2
-            className="section-title"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            {t('title')}
-          </motion.h2>
+          <DebugWrapper data={{ component: 'Projects', count: projects.length, items: projects.map(p => ({ id: p.id, title: p.title, tags: p.tags })) }}>
+            <motion.h2
+              className="section-title"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              {t('title')}
+            </motion.h2>
 
-          <div className="projects-grid">
+            <div className="projects-grid">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -220,6 +222,7 @@ const Projects = () => {
               </motion.div>
             ))}
           </div>
+          </DebugWrapper>
         </div>
       </section>
 

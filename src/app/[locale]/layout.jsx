@@ -1,6 +1,9 @@
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import {notFound} from 'next/navigation';
+import { DebugProvider } from '@/context/DebugContext';
+import DebugToggle from '@/components/Debug/DebugToggle';
+import DebugLogs from '@/components/Debug/DebugLogs';
 
 // Actually, let's stick to simple validation for now as per next-intl docs without routing config file if possible, or just validate here.
 
@@ -31,12 +34,16 @@ export default async function LocaleLayout({children, params}) {
     <html lang={locale} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
-          <div className="app">
-            <Navbar />
-            <main>{children}</main>
-            <Footer />
-            <Dashboard />
-          </div>
+          <DebugProvider>
+            <div className="app">
+              <DebugToggle />
+              <DebugLogs />
+              <Navbar />
+              <main>{children}</main>
+              <Footer />
+              <Dashboard />
+            </div>
+          </DebugProvider>
         </NextIntlClientProvider>
       </body>
     </html>
