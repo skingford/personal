@@ -46,22 +46,18 @@ const Navbar = () => {
   const isHome = pathname === `/${locale}` || pathname === '/';
 
   const navLinks = [
-    { name: t('home'), href: `/${locale}/#home`, type: 'hash' },
-    { name: t('about'), href: `/${locale}/#about`, type: 'hash' },
-    { name: t('projects'), href: `/${locale}/#projects`, type: 'hash' },
+    { name: t('home'), href: `/${locale}/`, type: 'route' },
     { name: t('experience'), href: `/${locale}/experience`, type: 'route' },
+    { name: t('resume'), href: `/${locale}/resume`, type: 'route' },
     { 
       name: t('more'), 
       type: 'dropdown',
       items: [
-        { name: t('skills'), href: `/${locale}/#skills`, type: 'hash' },
         { name: t('skillForest'), href: `/${locale}/skill-forest`, type: 'route' },
         { name: t('sandbox'), href: `/${locale}/sandbox`, type: 'route' },
         { name: t('chatbot'), href: `/${locale}/chatbot`, type: 'route' },
-        { name: t('resume'), href: `/${locale}/resume`, type: 'route' },
       ]
     },
-    { name: t('contact'), href: `/${locale}/#contact`, type: 'hash' },
   ];
 
   const handleNavClick = (link) => {

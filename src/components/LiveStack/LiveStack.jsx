@@ -87,7 +87,7 @@ const MusicCard = () => {
 
 const LiveStack = () => {
   return (
-    <section className="live-stack">
+    <section id="skills" className="live-stack">
       <div className="container">
         <motion.h2 
           className="section-title"

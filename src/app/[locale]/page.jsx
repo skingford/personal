@@ -5,6 +5,8 @@ import LiveStack from '@/components/LiveStack/LiveStack';
 import Projects from '@/components/Projects/Projects';
 import Contact from '@/components/Contact/Contact';
 
+import FloatingNav from '@/components/FloatingNav/FloatingNav';
+
 export const metadata = {
   title: 'Home | My Portfolio',
   description: 'Welcome to my personal portfolio website.',
@@ -13,6 +15,7 @@ export const metadata = {
 export default function Home() {
   return (
     <>
+      <FloatingNav />
       <Hero />
       <About />
       <LiveStack />
