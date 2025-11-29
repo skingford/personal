@@ -11,15 +11,14 @@ export const SmartNavProvider = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
 
-  // Filter tools based on search and category
+  // Filter tools based on search only
   const filteredTools = useMemo(() => {
     return tools.filter(tool => {
       const matchesSearch = tool.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                             tool.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
-      const matchesCategory = selectedCategory === 'all' || tool.category === selectedCategory;
-      return matchesSearch && matchesCategory;
+      return matchesSearch;
     });
-  }, [tools, searchQuery, selectedCategory]);
+  }, [tools, searchQuery]);
 
   // Sort tools by usage count (descending)
   const sortedTools = useMemo(() => {

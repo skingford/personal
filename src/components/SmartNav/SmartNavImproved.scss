@@ -575,6 +575,106 @@
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+  /* Main Content Layout */
+  .content-wrapper {
+    display: flex;
+    gap: 3rem;
+    position: relative;
+    align-items: flex-start;
+
+    .main-area {
+      flex: 1;
+      min-width: 0; /* Prevent flex item from overflowing */
+    }
+  }
+
+  /* Category Sidebar */
+  .category-sidebar {
+    width: 240px;
+    position: sticky;
+    top: 120px;
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: none;
+
+    @media (min-width: 1200px) {
+      display: block;
+    }
+
+    .sidebar-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      padding-left: 0.5rem;
+    }
+
+    .sidebar-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      .sidebar-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 8px;
+        color: #94a3b8;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.2s;
+        position: relative;
+        text-align: left;
+        width: 100%;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        .icon-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: inherit;
+          opacity: 0.7;
+        }
+
+        &:hover {
+          color: #cbd5e1;
+          background: rgba(255, 255, 255, 0.03);
+        }
+
+        &.active {
+          color: #fff;
+          background: rgba(var(--cat-color-rgb), 0.1); /* Fallback or complex logic needed for RGB var */
+          background: rgba(255, 255, 255, 0.05); /* Simple active bg */
+          
+          .icon-wrapper {
+            opacity: 1;
+            color: var(--cat-color);
+          }
+
+          .active-indicator {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 16px;
+            background: var(--cat-color);
+            border-radius: 0 4px 4px 0;
+            box-shadow: 0 0 8px var(--cat-color);
+          }
+        }
+      }
+    }
+  }
+
 @keyframes pulse {
   0% { transform: scale(1); opacity: 0.3; }
   50% { transform: scale(1.5); opacity: 0; }

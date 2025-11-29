@@ -69,7 +69,7 @@ const Workbench = () => {
         const CatIcon = iconMap[cat.icon] || LayoutGrid;
         
         return (
-          <div key={cat.id} className="category-section">
+          <div key={cat.id} id={`category-${cat.id}`} className="category-section">
             <div className="category-header">
               <div className="cat-icon" style={{ color: cat.color, background: `${cat.color}15` }}>
                 <CatIcon size={20} />

@@ -4,7 +4,8 @@ import { SmartNavProvider, useSmartNav } from './SmartNavContext';
 import Workbench from './Workbench';
 import AnalyticsDashboard from './AnalyticsDashboard';
 import CommandPalette from './CommandPalette';
-import { Search, LayoutGrid, BarChart2, Command } from 'lucide-react';
+import CategorySidebar from './CategorySidebar';
+import { Search, LayoutGrid, BarChart2, Command, Filter } from 'lucide-react';
 import './SmartNavImproved.scss';
 
 const SmartNavContent = () => {
@@ -13,9 +14,6 @@ const SmartNavContent = () => {
     setActiveView, 
     searchQuery, 
     setSearchQuery, 
-    categories, 
-    selectedCategory, 
-    setSelectedCategory,
     setIsCommandPaletteOpen
   } = useSmartNav();
 
@@ -28,14 +26,14 @@ const SmartNavContent = () => {
             className={activeView === 'workbench' ? 'active' : ''} 
             onClick={() => setActiveView('workbench')}
           >
-            <LayoutGrid size={18} style={{ marginRight: '8px', verticalAlign: 'text-bottom' }} />
+            <LayoutGrid size={18} />
             Workbench
           </button>
           <button 
             className={activeView === 'dashboard' ? 'active' : ''} 
             onClick={() => setActiveView('dashboard')}
           >
-            <BarChart2 size={18} style={{ marginRight: '8px', verticalAlign: 'text-bottom' }} />
+            <BarChart2 size={18} />
             Dashboard
           </button>
         </div>
@@ -54,22 +52,17 @@ const SmartNavContent = () => {
             <Command size={12} /> K
           </div>
         </div>
-
-        <div className="category-filters">
-          {categories.map(cat => (
-            <button
-              key={cat.id}
-              className={selectedCategory === cat.id ? 'active' : ''}
-              onClick={() => setSelectedCategory(cat.id)}
-              style={{ '--category-color': cat.color }}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
+        
+        {/* Placeholder for future dropdown filter if needed */}
+        {/* <button className="filter-btn"><Filter size={18} /> Filters</button> */}
       </div>
 
-      {activeView === 'workbench' ? <Workbench /> : <AnalyticsDashboard />}
+      <div className="content-wrapper">
+        <div className="main-area">
+          {activeView === 'workbench' ? <Workbench /> : <AnalyticsDashboard />}
+        </div>
+        {activeView === 'workbench' && <CategorySidebar />}
+      </div>
       
       <CommandPalette />
     </div>
