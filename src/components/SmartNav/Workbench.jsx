@@ -3,12 +3,12 @@ import React from 'react';
 import { useSmartNav } from './SmartNavContext';
 import { 
   ExternalLink, Code, Github, Triangle, PenTool, Bot, ListTodo, FileText, Container, Box,
-  LayoutGrid, Code2, CheckSquare, Rocket, Server
+  LayoutGrid, Code2, CheckSquare, Rocket, Server, Activity
 } from 'lucide-react';
 
 const iconMap = {
   Code, Github, Triangle, PenTool, Bot, ListTodo, FileText, Container,
-  LayoutGrid, Code2, CheckSquare, Rocket, Server
+  LayoutGrid, Code2, CheckSquare, Rocket, Server, Activity
 };
 
 const ToolCard = ({ tool, onLaunch }) => {
@@ -18,24 +18,41 @@ const ToolCard = ({ tool, onLaunch }) => {
                       tool.status === 'warning' ? 'warning' : 
                       tool.status === 'error' ? 'error' : 'healthy';
 
+  const statusText = tool.status === 'update_available' ? 'Update' : 
+                     tool.status === 'warning' ? 'Warning' : 
+                     tool.status === 'error' ? 'Error' : 'Online';
+
   return (
     <div className="tool-card" onClick={() => onLaunch(tool.id)}>
       <div className="card-header">
         <div className="icon-box">
-          <Icon size={28} strokeWidth={1.5} />
+          <Icon size={32} strokeWidth={1.5} />
         </div>
-        <div className={`status-dot ${statusClass}`} title={`Status: ${tool.status}`} />
+        <div className={`status-container ${statusClass}`}>
+          <div className="status-dot-wrapper">
+            <div className="status-dot" />
+          </div>
+          <span className="status-text">{statusText}</span>
+        </div>
       </div>
+      
       <h3>{tool.title}</h3>
       <p>{tool.description}</p>
+      
+      <div className="separator" />
+
       <div className="card-footer">
         <div className="tags">
           {tool.tags.slice(0, 2).map(tag => (
             <span key={tag}>#{tag}</span>
           ))}
         </div>
-        <span className="usage">{tool.usageCount} uses</span>
+        <span className="usage">
+          <Activity size={14} />
+          {tool.usageCount} uses
+        </span>
       </div>
+      
       <button className="launch-btn" onClick={(e) => {
         e.stopPropagation();
         window.open(tool.url, '_blank');
