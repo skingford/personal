@@ -178,6 +178,324 @@ export const INITIAL_TOOLS = [
     status: 'healthy',
     description: 'AI art generation platform.',
     icon: 'PenTool'
+  },
+  // Additional Development Tools
+  {
+    id: 'nextjs',
+    title: 'Next.js',
+    url: 'https://nextjs.org',
+    category: 'development',
+    tags: ['react', 'framework', 'ssr'],
+    usageCount: 1340,
+    lastUsed: '2023-11-29T11:45:00',
+    status: 'healthy',
+    description: 'The React Framework for Production.',
+    icon: 'Code'
+  },
+  {
+    id: 'tailwind',
+    title: 'Tailwind CSS',
+    url: 'https://tailwindcss.com',
+    category: 'development',
+    tags: ['css', 'utility', 'styling'],
+    usageCount: 1180,
+    lastUsed: '2023-11-29T10:20:00',
+    status: 'healthy',
+    description: 'Rapidly build modern websites without leaving your HTML.',
+    icon: 'Code2'
+  },
+  {
+    id: 'typescript',
+    title: 'TypeScript',
+    url: 'https://www.typescriptlang.org',
+    category: 'development',
+    tags: ['language', 'types', 'javascript'],
+    usageCount: 1420,
+    lastUsed: '2023-11-29T09:50:00',
+    status: 'healthy',
+    description: 'JavaScript with syntax for types.',
+    icon: 'Code'
+  },
+  {
+    id: 'stackoverflow',
+    title: 'Stack Overflow',
+    url: 'https://stackoverflow.com',
+    category: 'development',
+    tags: ['qa', 'community', 'help'],
+    usageCount: 760,
+    lastUsed: '2023-11-28T15:30:00',
+    status: 'healthy',
+    description: 'Where developers learn, share, & build careers.',
+    icon: 'Code2'
+  },
+  // Additional Design Tools
+  {
+    id: 'canva',
+    title: 'Canva',
+    url: 'https://www.canva.com',
+    category: 'design',
+    tags: ['graphics', 'templates', 'social'],
+    usageCount: 480,
+    lastUsed: '2023-11-28T13:00:00',
+    status: 'healthy',
+    description: 'Design anything. Publish anywhere.',
+    icon: 'PenTool'
+  },
+  {
+    id: 'framer',
+    title: 'Framer',
+    url: 'https://www.framer.com',
+    category: 'design',
+    tags: ['prototyping', 'animation', 'web'],
+    usageCount: 390,
+    lastUsed: '2023-11-27T16:00:00',
+    status: 'healthy',
+    description: 'Design and publish modern sites.',
+    icon: 'PenTool'
+  },
+  {
+    id: 'dribbble',
+    title: 'Dribbble',
+    url: 'https://dribbble.com',
+    category: 'design',
+    tags: ['inspiration', 'portfolio', 'community'],
+    usageCount: 290,
+    lastUsed: '2023-11-26T12:00:00',
+    status: 'healthy',
+    description: 'Discover the world\'s top designers & creatives.',
+    icon: 'PenTool'
+  },
+  {
+    id: 'behance',
+    title: 'Behance',
+    url: 'https://www.behance.net',
+    category: 'design',
+    tags: ['portfolio', 'showcase', 'adobe'],
+    usageCount: 250,
+    lastUsed: '2023-11-25T10:00:00',
+    status: 'healthy',
+    description: 'Showcase and discover creative work.',
+    icon: 'PenTool'
+  },
+  // Additional Productivity Tools
+  {
+    id: 'slack',
+    title: 'Slack',
+    url: 'https://slack.com',
+    category: 'productivity',
+    tags: ['chat', 'team', 'communication'],
+    usageCount: 890,
+    lastUsed: '2023-11-29T11:00:00',
+    status: 'healthy',
+    description: 'Where work happens.',
+    icon: 'ListTodo'
+  },
+  {
+    id: 'trello',
+    title: 'Trello',
+    url: 'https://trello.com',
+    category: 'productivity',
+    tags: ['kanban', 'project', 'boards'],
+    usageCount: 560,
+    lastUsed: '2023-11-28T14:00:00',
+    status: 'healthy',
+    description: 'Trello brings all your tasks, teammates, and tools together.',
+    icon: 'CheckSquare'
+  },
+  {
+    id: 'asana',
+    title: 'Asana',
+    url: 'https://asana.com',
+    category: 'productivity',
+    tags: ['project', 'management', 'tasks'],
+    usageCount: 420,
+    lastUsed: '2023-11-27T13:00:00',
+    status: 'healthy',
+    description: 'Manage your team\'s work, projects, & tasks online.',
+    icon: 'ListTodo'
+  },
+  {
+    id: 'obsidian',
+    title: 'Obsidian',
+    url: 'https://obsidian.md',
+    category: 'productivity',
+    tags: ['notes', 'knowledge', 'markdown'],
+    usageCount: 720,
+    lastUsed: '2023-11-29T08:00:00',
+    status: 'healthy',
+    description: 'A powerful knowledge base on top of a local folder of plain text files.',
+    icon: 'FileText'
+  },
+  // Additional Deployment Tools
+  {
+    id: 'netlify',
+    title: 'Netlify',
+    url: 'https://www.netlify.com',
+    category: 'deployment',
+    tags: ['hosting', 'jamstack', 'cdn'],
+    usageCount: 380,
+    lastUsed: '2023-11-28T17:00:00',
+    status: 'healthy',
+    description: 'Build, deploy, and scale modern web projects.',
+    icon: 'Rocket'
+  },
+  {
+    id: 'railway',
+    title: 'Railway',
+    url: 'https://railway.app',
+    category: 'deployment',
+    tags: ['hosting', 'backend', 'database'],
+    usageCount: 290,
+    lastUsed: '2023-11-27T15:00:00',
+    status: 'healthy',
+    description: 'Bring your code, we\'ll handle the rest.',
+    icon: 'Rocket'
+  },
+  {
+    id: 'cloudflare',
+    title: 'Cloudflare',
+    url: 'https://www.cloudflare.com',
+    category: 'deployment',
+    tags: ['cdn', 'security', 'dns'],
+    usageCount: 510,
+    lastUsed: '2023-11-28T19:00:00',
+    status: 'healthy',
+    description: 'The Web Performance & Security Company.',
+    icon: 'Rocket'
+  },
+  // Additional DevOps Tools
+  {
+    id: 'kubernetes',
+    title: 'Kubernetes',
+    url: 'https://kubernetes.io',
+    category: 'devops',
+    tags: ['orchestration', 'containers', 'k8s'],
+    usageCount: 340,
+    lastUsed: '2023-11-26T14:00:00',
+    status: 'healthy',
+    description: 'Production-Grade Container Orchestration.',
+    icon: 'Server'
+  },
+  {
+    id: 'jenkins',
+    title: 'Jenkins',
+    url: 'https://www.jenkins.io',
+    category: 'devops',
+    tags: ['ci', 'automation', 'pipeline'],
+    usageCount: 280,
+    lastUsed: '2023-11-25T16:00:00',
+    status: 'healthy',
+    description: 'Build great things at any scale.',
+    icon: 'Server'
+  },
+  {
+    id: 'terraform',
+    title: 'Terraform',
+    url: 'https://www.terraform.io',
+    category: 'devops',
+    tags: ['iac', 'infrastructure', 'cloud'],
+    usageCount: 310,
+    lastUsed: '2023-11-27T11:00:00',
+    status: 'healthy',
+    description: 'Infrastructure as Code to provision and manage any cloud.',
+    icon: 'Server'
+  },
+  {
+    id: 'grafana',
+    title: 'Grafana',
+    url: 'https://grafana.com',
+    category: 'devops',
+    tags: ['monitoring', 'metrics', 'visualization'],
+    usageCount: 260,
+    lastUsed: '2023-11-26T10:00:00',
+    status: 'healthy',
+    description: 'The open observability platform.',
+    icon: 'Server'
+  },
+  // IoT Tools
+  {
+    id: 'emqx',
+    title: 'EMQX',
+    url: 'https://www.emqx.io',
+    category: 'iot',
+    tags: ['mqtt', 'broker', 'messaging'],
+    usageCount: 520,
+    lastUsed: '2023-11-29T10:30:00',
+    status: 'healthy',
+    description: 'The most scalable open-source MQTT broker for IoT.',
+    icon: 'Server'
+  },
+  {
+    id: 'thingsboard',
+    title: 'ThingsBoard',
+    url: 'https://thingsboard.io',
+    category: 'iot',
+    tags: ['platform', 'dashboard', 'devices'],
+    usageCount: 380,
+    lastUsed: '2023-11-28T16:00:00',
+    status: 'healthy',
+    description: 'Open-source IoT platform for data collection and visualization.',
+    icon: 'Server'
+  },
+  {
+    id: 'nodered',
+    title: 'Node-RED',
+    url: 'https://nodered.org',
+    category: 'iot',
+    tags: ['flow', 'automation', 'visual'],
+    usageCount: 450,
+    lastUsed: '2023-11-29T09:00:00',
+    status: 'healthy',
+    description: 'Low-code programming for event-driven applications.',
+    icon: 'Code'
+  },
+  {
+    id: 'arduino',
+    title: 'Arduino',
+    url: 'https://www.arduino.cc',
+    category: 'iot',
+    tags: ['hardware', 'microcontroller', 'embedded'],
+    usageCount: 610,
+    lastUsed: '2023-11-28T14:30:00',
+    status: 'healthy',
+    description: 'Open-source electronics platform.',
+    icon: 'Container'
+  },
+  {
+    id: 'raspberrypi',
+    title: 'Raspberry Pi',
+    url: 'https://www.raspberrypi.org',
+    category: 'iot',
+    tags: ['sbc', 'linux', 'hardware'],
+    usageCount: 540,
+    lastUsed: '2023-11-27T12:00:00',
+    status: 'healthy',
+    description: 'Low cost, high performance computers.',
+    icon: 'Container'
+  },
+  {
+    id: 'homeassistant',
+    title: 'Home Assistant',
+    url: 'https://www.home-assistant.io',
+    category: 'iot',
+    tags: ['smart-home', 'automation', 'open-source'],
+    usageCount: 420,
+    lastUsed: '2023-11-26T18:00:00',
+    status: 'healthy',
+    description: 'Open source home automation that puts local control first.',
+    icon: 'Server'
+  },
+  {
+    id: 'influxdb',
+    title: 'InfluxDB',
+    url: 'https://www.influxdata.com',
+    category: 'iot',
+    tags: ['timeseries', 'database', 'metrics'],
+    usageCount: 340,
+    lastUsed: '2023-11-25T15:00:00',
+    status: 'healthy',
+    description: 'Time series database built for IoT and real-time analytics.',
+    icon: 'Server'
   }
 ];
 
@@ -188,7 +506,8 @@ export const CATEGORIES = [
   { id: 'productivity', label: 'Productivity', color: '#f59e0b', icon: 'CheckSquare' },
   { id: 'deployment', label: 'Deployment', color: '#10b981', icon: 'Rocket' },
   { id: 'devops', label: 'DevOps', color: '#6366f1', icon: 'Server' },
-  { id: 'ai', label: 'AI & ML', color: '#8b5cf6', icon: 'Bot' }
+  { id: 'ai', label: 'AI & ML', color: '#8b5cf6', icon: 'Bot' },
+  { id: 'iot', label: 'IoT', color: '#14b8a6', icon: 'Container' }
 ];
 
 export const WORKFLOWS = [
