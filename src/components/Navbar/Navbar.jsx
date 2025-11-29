@@ -56,6 +56,7 @@ const Navbar = () => {
         { name: t('skillForest'), href: `/${locale}/skill-forest`, type: 'route' },
         { name: t('sandbox'), href: `/${locale}/sandbox`, type: 'route' },
         { name: t('chatbot'), href: `/${locale}/chatbot`, type: 'route' },
+        { name: t('jukebox'), href: `/${locale}/jukebox`, type: 'route' },
       ]
     },
   ];
