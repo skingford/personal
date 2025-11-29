@@ -57,6 +57,7 @@ const Navbar = () => {
         { name: t('sandbox'), href: `/${locale}/sandbox`, type: 'route' },
         { name: t('chatbot'), href: `/${locale}/chatbot`, type: 'route' },
         { name: t('jukebox'), href: `/${locale}/jukebox`, type: 'route' },
+        { name: t('smartNav'), href: `/${locale}/smart-nav`, type: 'route' },
       ]
     },
   ];
