@@ -1,10 +1,14 @@
 'use client';
 import React from 'react';
 import { useSmartNav } from './SmartNavContext';
-import { ExternalLink, Code, Github, Triangle, PenTool, Bot, ListTodo, FileText, Container, Box } from 'lucide-react';
+import { 
+  ExternalLink, Code, Github, Triangle, PenTool, Bot, ListTodo, FileText, Container, Box,
+  LayoutGrid, Code2, CheckSquare, Rocket, Server
+} from 'lucide-react';
 
 const iconMap = {
-  Code, Github, Triangle, PenTool, Bot, ListTodo, FileText, Container
+  Code, Github, Triangle, PenTool, Bot, ListTodo, FileText, Container,
+  LayoutGrid, Code2, CheckSquare, Rocket, Server
 };
 
 const ToolCard = ({ tool, onLaunch }) => {
@@ -18,7 +22,7 @@ const ToolCard = ({ tool, onLaunch }) => {
     <div className="tool-card" onClick={() => onLaunch(tool.id)}>
       <div className="card-header">
         <div className="icon-box">
-          <Icon size={24} />
+          <Icon size={28} strokeWidth={1.5} />
         </div>
         <div className={`status-dot ${statusClass}`} title={`Status: ${tool.status}`} />
       </div>
@@ -37,24 +41,60 @@ const ToolCard = ({ tool, onLaunch }) => {
         window.open(tool.url, '_blank');
         onLaunch(tool.id);
       }}>
-        <ExternalLink size={16} />
+        <ExternalLink size={18} />
       </button>
     </div>
   );
 };
 
 const Workbench = () => {
-  const { filteredTools, incrementUsage } = useSmartNav();
+  const { filteredTools, categories, incrementUsage } = useSmartNav();
+
+  // Group tools by category
+  const groupedTools = filteredTools.reduce((acc, tool) => {
+    if (!acc[tool.category]) acc[tool.category] = [];
+    acc[tool.category].push(tool);
+    return acc;
+  }, {});
+
+  // Get categories to display (excluding 'all' unless we want to show it specially, but usually we group by specific cats)
+  // We filter categories that have at least one tool in the current filtered set
+  const displayCategories = categories.filter(cat => 
+    cat.id !== 'all' && groupedTools[cat.id]?.length > 0
+  );
 
   return (
-    <div className="workbench-grid">
-      {filteredTools.map(tool => (
-        <ToolCard 
-          key={tool.id} 
-          tool={tool} 
-          onLaunch={incrementUsage} 
-        />
-      ))}
+    <div className="workbench-container">
+      {displayCategories.map(cat => {
+        const CatIcon = iconMap[cat.icon] || LayoutGrid;
+        
+        return (
+          <div key={cat.id} className="category-section">
+            <div className="category-header">
+              <div className="cat-icon" style={{ color: cat.color, background: `${cat.color}15` }}>
+                <CatIcon size={20} />
+              </div>
+              <h2 style={{ '--cat-color': cat.color }}>{cat.label}</h2>
+              <div className="line" />
+            </div>
+            <div className="workbench-grid">
+              {groupedTools[cat.id].map(tool => (
+                <ToolCard 
+                  key={tool.id} 
+                  tool={tool} 
+                  onLaunch={incrementUsage} 
+                />
+              ))}
+            </div>
+          </div>
+        );
+      })}
+      
+      {displayCategories.length === 0 && (
+        <div style={{ textAlign: 'center', padding: '4rem', color: '#64748b' }}>
+          <p>No tools found matching your criteria.</p>
+        </div>
+      )}
     </div>
   );
 };

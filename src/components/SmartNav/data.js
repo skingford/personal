@@ -98,13 +98,13 @@ export const INITIAL_TOOLS = [
 ];
 
 export const CATEGORIES = [
-  { id: 'all', label: 'All Tools', color: '#64748b' },
-  { id: 'development', label: 'Development', color: '#3b82f6' },
-  { id: 'design', label: 'Design', color: '#ec4899' },
-  { id: 'productivity', label: 'Productivity', color: '#f59e0b' },
-  { id: 'deployment', label: 'Deployment', color: '#10b981' },
-  { id: 'devops', label: 'DevOps', color: '#6366f1' },
-  { id: 'ai', label: 'AI & ML', color: '#8b5cf6' }
+  { id: 'all', label: 'All Tools', color: '#64748b', icon: 'LayoutGrid' },
+  { id: 'development', label: 'Development', color: '#3b82f6', icon: 'Code2' },
+  { id: 'design', label: 'Design', color: '#ec4899', icon: 'PenTool' },
+  { id: 'productivity', label: 'Productivity', color: '#f59e0b', icon: 'CheckSquare' },
+  { id: 'deployment', label: 'Deployment', color: '#10b981', icon: 'Rocket' },
+  { id: 'devops', label: 'DevOps', color: '#6366f1', icon: 'Server' },
+  { id: 'ai', label: 'AI & ML', color: '#8b5cf6', icon: 'Bot' }
 ];
 
 export const WORKFLOWS = [

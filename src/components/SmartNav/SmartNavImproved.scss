@@ -188,6 +188,43 @@
     }
   }
 
+  /* Category Section */
+  .category-section {
+    margin-bottom: 4rem;
+    animation: fadeIn 0.5s ease-out;
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+
+      .cat-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #f1f5f9;
+        white-space: nowrap;
+      }
+
+      .line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
+        margin-left: 1rem;
+      }
+    }
+  }
+
   /* Workbench Grid */
   .workbench-grid {
     display: grid;
@@ -542,4 +579,9 @@
   0% { transform: scale(1); opacity: 0.3; }
   50% { transform: scale(1.5); opacity: 0; }
   100% { transform: scale(1); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
