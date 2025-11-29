@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useDebug } from '@/context/DebugContext';
-import { Terminal, Eye } from 'lucide-react';
+import { Terminal, Bug } from 'lucide-react';
 import './DebugToggle.scss';
 
 const DebugToggle = () => {
@@ -11,14 +11,13 @@ const DebugToggle = () => {
     <button 
       className={`debug-toggle ${isDebug ? 'active' : ''}`} 
       onClick={toggleDebug}
-      title={isDebug ? "Switch to Render Mode" : "Switch to Debug Mode"}
+      title={isDebug ? "Disable Debug Mode" : "Enable Debug Mode"}
+      aria-pressed={isDebug}
     >
-      <div className="toggle-track">
-        <div className="toggle-thumb">
-          {isDebug ? <Terminal size={14} /> : <Eye size={14} />}
-        </div>
+      <div className="icon-wrapper">
+        {isDebug ? <Terminal size={14} /> : <Bug size={14} />}
       </div>
-      <span className="toggle-label">{isDebug ? 'DEBUG' : 'RENDER'}</span>
+      <span className="toggle-label">{isDebug ? 'DEBUG ON' : 'DEBUG OFF'}</span>
     </button>
   );
 };

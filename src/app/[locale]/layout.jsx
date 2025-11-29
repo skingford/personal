@@ -30,11 +30,11 @@ export default async function LocaleLayout({children, params}) {
       <body suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <DebugProvider>
-            <DebugToggle />
             <DebugLogs />
             <ClientLayout>
               {children}
             </ClientLayout>
+            <DebugToggle />
           </DebugProvider>
         </NextIntlClientProvider>
       </body>
