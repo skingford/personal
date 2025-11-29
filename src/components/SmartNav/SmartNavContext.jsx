@@ -8,7 +8,6 @@ export const SmartNavProvider = ({ children }) => {
   const [tools, setTools] = useState(INITIAL_TOOLS);
   const [activeView, setActiveView] = useState('workbench'); // workbench, dashboard
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
 
   // Filter tools based on search only
@@ -64,8 +63,6 @@ export const SmartNavProvider = ({ children }) => {
       setActiveView,
       searchQuery,
       setSearchQuery,
-      selectedCategory,
-      setSelectedCategory,
       isCommandPaletteOpen,
       setIsCommandPaletteOpen,
       incrementUsage,

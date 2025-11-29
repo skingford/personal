@@ -94,6 +94,90 @@ export const INITIAL_TOOLS = [
     status: 'warning',
     description: 'OS-level virtualization to deliver software in packages.',
     icon: 'Container'
+  },
+  {
+    id: 'deepseek',
+    title: 'DeepSeek',
+    url: 'https://chat.deepseek.com',
+    category: 'ai',
+    tags: ['llm', 'chinese', 'reasoning'],
+    usageCount: 890,
+    lastUsed: '2023-11-29T10:45:00',
+    status: 'healthy',
+    description: 'Advanced AI model with strong reasoning capabilities.',
+    icon: 'Bot'
+  },
+  {
+    id: 'gemini',
+    title: 'Gemini',
+    url: 'https://gemini.google.com',
+    category: 'ai',
+    tags: ['llm', 'google', 'multimodal'],
+    usageCount: 1120,
+    lastUsed: '2023-11-29T11:30:00',
+    status: 'healthy',
+    description: 'Google\'s most capable AI model.',
+    icon: 'Bot'
+  },
+  {
+    id: 'claude',
+    title: 'Claude',
+    url: 'https://claude.ai',
+    category: 'ai',
+    tags: ['llm', 'anthropic', 'assistant'],
+    usageCount: 1050,
+    lastUsed: '2023-11-29T10:00:00',
+    status: 'healthy',
+    description: 'Anthropic\'s AI assistant for thoughtful conversations.',
+    icon: 'Bot'
+  },
+  {
+    id: 'cursor',
+    title: 'Cursor',
+    url: 'https://cursor.sh',
+    category: 'ai',
+    tags: ['code', 'editor', 'ai-powered'],
+    usageCount: 780,
+    lastUsed: '2023-11-29T09:30:00',
+    status: 'healthy',
+    description: 'AI-first code editor built for productivity.',
+    icon: 'Code'
+  },
+  {
+    id: 'copilot',
+    title: 'GitHub Copilot',
+    url: 'https://github.com/features/copilot',
+    category: 'ai',
+    tags: ['code', 'assistant', 'github'],
+    usageCount: 950,
+    lastUsed: '2023-11-29T08:15:00',
+    status: 'healthy',
+    description: 'Your AI pair programmer.',
+    icon: 'Github'
+  },
+  {
+    id: 'perplexity',
+    title: 'Perplexity',
+    url: 'https://www.perplexity.ai',
+    category: 'ai',
+    tags: ['search', 'research', 'llm'],
+    usageCount: 620,
+    lastUsed: '2023-11-28T20:00:00',
+    status: 'healthy',
+    description: 'AI-powered answer engine for research.',
+    icon: 'Bot'
+  },
+  {
+    id: 'midjourney',
+    title: 'Midjourney',
+    url: 'https://www.midjourney.com',
+    category: 'ai',
+    tags: ['image', 'generation', 'art'],
+    usageCount: 540,
+    lastUsed: '2023-11-27T19:00:00',
+    status: 'healthy',
+    description: 'AI art generation platform.',
+    icon: 'PenTool'
   }
 ];
 
