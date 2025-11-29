@@ -5,7 +5,7 @@ import Workbench from './Workbench';
 import AnalyticsDashboard from './AnalyticsDashboard';
 import CommandPalette from './CommandPalette';
 import { Search, LayoutGrid, BarChart2, Command } from 'lucide-react';
-import './SmartNav.scss';
+import './SmartNavImproved.scss';
 
 const SmartNavContent = () => {
   const { 
@@ -50,24 +50,7 @@ const SmartNavContent = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <div 
-            style={{ 
-              position: 'absolute', 
-              right: '12px', 
-              top: '50%', 
-              transform: 'translateY(-50%)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px',
-              color: '#64748b',
-              fontSize: '0.8rem',
-              background: '#0f172a',
-              padding: '4px 8px',
-              borderRadius: '6px',
-              cursor: 'pointer'
-            }}
-            onClick={() => setIsCommandPaletteOpen(true)}
-          >
+          <div className="cmd-k-hint">
             <Command size={12} /> K
           </div>
         </div>
