@@ -13,6 +13,7 @@ const DebugToggle = () => {
       onClick={toggleDebug}
       title={isDebug ? "Disable Debug Mode" : "Enable Debug Mode"}
       aria-pressed={isDebug}
+      suppressHydrationWarning
     >
       <div className="icon-wrapper">
         {isDebug ? <Terminal size={14} /> : <Bug size={14} />}
