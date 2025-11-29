@@ -8,10 +8,7 @@ import DebugLogs from '@/components/Debug/DebugLogs';
 // Actually, let's stick to simple validation for now as per next-intl docs without routing config file if possible, or just validate here.
 
 import '@/styles/global.scss';
-import Navbar from '@/components/Navbar/Navbar';
-import Footer from '@/components/Footer/Footer';
-
-import Dashboard from '@/components/Dashboard/Dashboard';
+import ClientLayout from '@/components/Layout/ClientLayout';
 
 export const metadata = {
   title: 'My Portfolio',
@@ -25,9 +22,7 @@ export default async function LocaleLayout({children, params}) {
   if (!['en', 'zh-CN', 'zh-TW'].includes(locale)) {
     notFound();
   }
- 
-  // Providing all messages to the client
-  // side is the easiest way to get started
+
   const messages = await getMessages();
  
   return (
@@ -35,14 +30,11 @@ export default async function LocaleLayout({children, params}) {
       <body suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <DebugProvider>
-            <div className="app">
-              <DebugToggle />
-              <DebugLogs />
-              <Navbar />
-              <main>{children}</main>
-              <Footer />
-              <Dashboard />
-            </div>
+            <DebugToggle />
+            <DebugLogs />
+            <ClientLayout>
+              {children}
+            </ClientLayout>
           </DebugProvider>
         </NextIntlClientProvider>
       </body>
